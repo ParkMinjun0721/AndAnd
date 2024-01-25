@@ -1,6 +1,6 @@
 # And&
 
-시선학회의 Flutter Project 입니다.
+시선 학회의 Flutter Project 입니다.
 
 ## Getting Started
 
