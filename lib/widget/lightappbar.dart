@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widget/baseappbar.dart';
+import 'widget/bottomNavi.dart';
+import 'widget/baseappbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,7 +9,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -62,7 +62,13 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      bottomNavigationBar: BottomNavi(
+        selectedIndex: 1,
+        onItemTapped: (index) {
+          print('Selected Index: $index');
+        },
+      ),
     );
   }
 }
