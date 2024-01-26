@@ -31,20 +31,29 @@ class _GradenMainState extends State<GradenMain> {
       appBar: AppBar(
         title: Text('Your App Title'),
       ),
-      body: Column(
+      body: Stack(
         children: [
-          IconButton(
-            icon: Icon(Icons.help_outline),
-            onPressed: _checkQuestion,
-          ),
-          Center(
-            child: Text(
-              'Your Body Content',
-              style: TextStyle(fontSize: 24.0),
+          // 배경 이미지
+          Positioned.fill(
+            child: Image.asset(
+              'assets/graden1.jpg', // 이미지 파일의 경로
+              fit: BoxFit.cover,
             ),
           ),
-          SizedBox(
-            height: 20.0, // Adjust the spacing as needed
+          // 내용
+          Column(
+            children: [
+              IconButton(
+                icon: Icon(Icons.help_outline),
+                onPressed: _checkQuestion,
+              ),
+              Center(
+                child: Text(
+                  'Your Body Content',
+                  style: TextStyle(fontSize: 24.0),
+                ),
+              ),
+            ],
           ),
         ],
       ),
