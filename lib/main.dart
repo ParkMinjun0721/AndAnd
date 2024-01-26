@@ -1,3 +1,4 @@
+import 'package:andand/login/login_main.dart';
 import 'package:flutter/material.dart';
 import '../widget/baseappbar.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const LoginPage(),
     );
   }
 }
