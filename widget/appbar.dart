@@ -7,4 +7,7 @@ class Appbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Placeholder();
   }
+
+
+  //상단바입니다.
 }
