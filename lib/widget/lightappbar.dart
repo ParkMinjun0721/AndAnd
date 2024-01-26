@@ -32,10 +32,10 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Navigator.pop(context);
               },
             ),
-            SizedBox(width: 135),
+            SizedBox(width: screenWidth * 0.3),
             Image.asset(
               'assets/andlogo.png',
-              height: 45,
+              height: screenHeight * 0.5,
             ),
           ],
         ),
