@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:andand/widget/baseappbar.dart';
+import 'package:andand/widget/bottomNavi.dart';
+
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BaseAppBar({Key? key}) : super(key: key);
