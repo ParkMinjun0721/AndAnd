@@ -14,6 +14,10 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    // width: screenWidth * 0.9,
+    // height: screenHeight * 0.6,
     return AppBar(
       backgroundColor: Color(0xFF87BD9D).withOpacity(0.05),
       elevation: 0.3,
