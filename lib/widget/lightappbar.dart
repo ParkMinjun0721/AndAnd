@@ -1,74 +1,41 @@
 import 'package:flutter/material.dart';
-import 'widget/bottomNavi.dart';
-import 'widget/baseappbar.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const BaseAppBar({Key? key}) : super(key: key);
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  static const IconData arrowBackIcon = IconData(
+    0xf571,
+    fontFamily: 'MaterialIcons',
+    matchTextDirection: true,
+  );
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: BaseAppBar(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+    return AppBar(
+      backgroundColor: Color(0xFF87BD9D).withOpacity(0.05),
+      elevation: 0.3,
+      flexibleSpace: SafeArea(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IconButton(
+              padding: const EdgeInsets.only(top: 10, left: 5),
+              icon: Icon(arrowBackIcon),
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            SizedBox(width: 135),
+            Image.asset(
+              'assets/andlogo.png',
+              height: 45,
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-      bottomNavigationBar: BottomNavi(
-        selectedIndex: 1,
-        onItemTapped: (index) {
-          print('Selected Index: $index');
-        },
-      ),
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(70);
 }
