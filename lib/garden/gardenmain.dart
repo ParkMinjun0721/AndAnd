@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:andand/widget/bottomNavi.dart';
 import '../util/color.dart';
+import 'flowerbook.dart';
 
-class GradenMain extends StatefulWidget {
-  const GradenMain({Key? key}) : super(key: key);
+class GardenMain extends StatefulWidget {
+  const GardenMain({Key? key}) : super(key: key);
 
   @override
-  _GradenMainState createState() => _GradenMainState();
+  _GardenMainState createState() => _GardenMainState();
 }
 
-class _GradenMainState extends State<GradenMain> {
+class _GardenMainState extends State<GardenMain> {
 
   void _checkPlus() {
     setState(() {
@@ -19,18 +20,39 @@ class _GradenMainState extends State<GradenMain> {
 
   void _checkBook(){
     setState(() {
-
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => flowerbook()),
+      );
     });
   }
 
   void _checkQuestion() {
-    setState(() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title:  Center(child : Text("사용방법")),
+          content: Text("1. + 버튼을 클릭해 꽃,풀,산과 같은 자연을 촬영 또는 업로드해주세요!\n\n"
+              "2. 꽃 사진을 추가하면 정원이 레벨 업을 해서 더욱 예쁘게 꾸며져요\n\n"
+          "3. 추가된 꽃은 공유되고, 함께 도감에서 볼 수 있어요!\n\n"),
 
-    });
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("닫기"),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   final String name1 = '안하경';
   final String name2 = '도현미';
+  final int level = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +120,7 @@ class _GradenMainState extends State<GradenMain> {
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/graden1.jpg'),
+                    image: AssetImage('assets/garden$level.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -106,11 +128,22 @@ class _GradenMainState extends State<GradenMain> {
             ),
             Positioned(
               top: 20.0,
-              right: 20.0,
+              right: MediaQuery.of(context).size.width * 0.05,
               child: IconButton(
-                icon: Icon(Icons.help_outline),
+                icon: Icon(Icons.info_outlined),
                 onPressed: _checkQuestion,
               ),
+            ),
+            Positioned(
+                top: 20.0,
+                left: MediaQuery.of(context).size.width * 0.05 ,
+                child: Text(
+                    'level $level',
+                    style: TextStyle(
+                    fontSize: screenWidth*0.05, // 원하는 폰트 크기로 조절
+                    color: Colors.white, // 하얀색으로 지정
+                  ),
+                ),
             ),
             Positioned(
               bottom: 20.0,
@@ -119,13 +152,13 @@ class _GradenMainState extends State<GradenMain> {
                 onTap: _checkBook,
                 child: Image.asset(
                   'assets/flowerbook.png',
-                  width: 60.0,
-                  height: 60.0,
+                  width: 80.0,
+                  height: 80.0,
                 ),
               ),
             ),
             Positioned(
-              bottom: 25.0,
+              bottom: 30.0,
               left: MediaQuery.of(context).size.width * 0.05,
               child: FloatingActionButton(
                 onPressed: _checkPlus,
@@ -151,6 +184,6 @@ class _GradenMainState extends State<GradenMain> {
 
 void main() {
   runApp(MaterialApp(
-    home: GradenMain(),
+    home: GardenMain(),
   ));
 }
