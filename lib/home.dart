@@ -1,5 +1,6 @@
 import 'package:andand/login/login_main.dart';
 import 'package:flutter/material.dart';
+import 'util/color.dart';
 import 'widget/bottomNavi.dart';
 import 'widget/baseappbar.dart';
 import 'main.dart';
@@ -17,7 +18,7 @@ class _HomeState extends State<Home> {
     return MaterialApp(
       title: 'Andand',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
+        primaryColor: lightColorScheme.primary,
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Homepage'),
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(25.0),
                   child: Text(
                     '  키워드에 어울리는\n 오늘의 사진 한 장을\n      공유해주세요!',
                     style: TextStyle(
@@ -72,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: const EdgeInsets.all(0),
                       child: Image.asset(
                         'assets/mainbear.png',
-                        width: screenWidth * 0.7,
+                        width: screenWidth * 0.8,
                         height: screenHeight * 0.5,
                       ),
                     ),
@@ -110,6 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+
       bottomNavigationBar: BottomNavi(
         selectedIndex: 1,
         onItemTapped: (index) {
