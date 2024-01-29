@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
     return MaterialApp(
       title: 'Andand',
       theme: ThemeData(
-        primaryColor: lightColorScheme.primary,
+        //primaryColor: lightColorScheme.primary,
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Homepage'),
@@ -46,72 +46,74 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: BaseAppBar(),
-      body: Stack(
-        clipBehavior: Clip.none,
-        children: <Widget>[
-          Container(
-            width: screenWidth,
-            height: screenHeight*0.26,
-            color: Color(0xFF87BD9D),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(25.0),
-                  child: Text(
-                    '  키워드에 어울리는\n 오늘의 사진 한 장을\n      공유해주세요!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.5,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: const EdgeInsets.all(0),
-                      child: Image.asset(
-                        'assets/mainbear.png',
-                        width: screenWidth * 0.8,
-                        height: screenHeight * 0.5,
+      body: NestedScrollView(
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return [
+            SliverAppBar(
+              expandedHeight: screenHeight * 0.4,
+              floating: false,
+              pinned: false,
+              flexibleSpace: Container(
+                width: screenWidth,
+                height: screenHeight * 0.26,
+                color: Color(0xFF87BD9D),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(25.0),
+                      child: Text(
+                        '  키워드에 어울리는\n 오늘의 사진 한 장을\n      공유해주세요!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22.5,
+                        ),
                       ),
+                    ),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: const EdgeInsets.all(0),
+                          child: Image.asset(
+                            'assets/mainbear.png',
+                            width: screenWidth * 0.8,
+                            height: screenHeight * 0.5,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ];
+        },
+          body: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Center(
+                  child: Container(
+                    width: screenWidth * 0.9,
+                    height: screenHeight * 0.68,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFF9F9F9),
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey, // 그림자 색상
+                          blurRadius: 5.0, // 그림자 흐림 정도
+                          offset: Offset(0, 2), // 그림자 위치 (수평, 수직)
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ],
             ),
-          ),
-          Positioned(
-            bottom: screenWidth * (-0.17),
-            right: (screenWidth - (screenWidth * 0.85)) / 2,
-            child: Container(
-              width: screenWidth * 0.85,
-              height: screenHeight * 0.115,
-              decoration: BoxDecoration(
-                color: Color(0xFFF9F9F9),
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey, // 그림자 색상
-                    blurRadius: 5.0, // 그림자 흐림 정도
-                    offset: Offset(0, 2), // 그림자 위치 (수평, 수직)
-                  ),
-                ],
-              ),
-              child: Text(
-                '   성공 일수',
-                style: TextStyle(
-                  color: Color(0xFFADADAD),
-                  fontSize: 14,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-            ),
-          ),
-        ],
+          )
       ),
-
       bottomNavigationBar: BottomNavi(
         selectedIndex: 1,
         onItemTapped: (index) {

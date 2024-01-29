@@ -9,6 +9,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return AppBar(
+      scrolledUnderElevation: 0,
       backgroundColor: Color(0xFF87BD9D),
       elevation: 0,
       title: Row(
@@ -23,5 +24,5 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(110);
+  Size get preferredSize => Size.fromHeight(100);
 }
