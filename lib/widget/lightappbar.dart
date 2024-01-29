@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:andand/widget/baseappbar.dart';
+import 'package:andand/widget/bottomNavi.dart';
+
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BaseAppBar({Key? key}) : super(key: key);
@@ -11,6 +14,10 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    // width: screenWidth * 0.9,
+    // height: screenHeight * 0.6,
     return AppBar(
       backgroundColor: Color(0xFF87BD9D).withOpacity(0.05),
       elevation: 0.3,
@@ -25,10 +32,10 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Navigator.pop(context);
               },
             ),
-            SizedBox(width: 135),
+            SizedBox(width: screenWidth * 0.3),
             Image.asset(
               'assets/andlogo.png',
-              height: 45,
+              height: screenHeight * 0.5,
             ),
           ],
         ),

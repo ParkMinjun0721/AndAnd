@@ -63,12 +63,14 @@ flutter:
   assets:
      - assets/andlogo.png
      - assets/graden1.jpg
-<<<<<<< HEAD
      - assets/lightlogo.png
-=======
-     - assets/flowerbook.jpg
->>>>>>> khj
-  #   - images/a_dot_ham.jpeg
+     - assets/flowerbook.png
+     - assets/logo_green_with_and.png
+     - assets/bear_use_labtop.png
+     - assets/login_google.png
+     - assets/login_kakaotalk.png
+     - assets/lightlogo.png
+    #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
