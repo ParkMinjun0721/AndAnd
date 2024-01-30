@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:andand/widget/baseappbar.dart';
-import 'package:andand/widget/bottomNavi.dart';
-
 
 class LightAppBar extends StatelessWidget implements PreferredSizeWidget {
   const LightAppBar({Key? key}) : super(key: key);
@@ -19,6 +16,7 @@ class LightAppBar extends StatelessWidget implements PreferredSizeWidget {
     final bool automaticallyImplyLeading;
     // width: screenWidth * 0.9,
     // height: screenHeight * 0.6,
+    
     return AppBar(
       backgroundColor: Color(0xFF87BD9D).withOpacity(0.05),
       automaticallyImplyLeading: false,
@@ -28,13 +26,13 @@ class LightAppBar extends StatelessWidget implements PreferredSizeWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             IconButton(
-              padding: const EdgeInsets.only(top: 10, left: 5),
+              padding: const EdgeInsets.only(top: 10, left: 10),
               icon: Icon(arrowBackIcon),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
-            SizedBox(width: screenWidth * 0.3),
+            SizedBox(width: screenWidth * 0.05), // Adjust the spacing as needed
             Image.asset(
               'assets/andlogo.png',
               height: screenHeight * 0.5,
