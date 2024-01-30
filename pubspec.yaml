@@ -77,6 +77,9 @@ flutter:
      - assets/bear_welcome.png
      - assets/garden2.jpg
      - assets/garden_complete.png
+     - assets/deleteAsk.png
+     - assets/marketComplete.png
+     - assets/photoComplete.png
     #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

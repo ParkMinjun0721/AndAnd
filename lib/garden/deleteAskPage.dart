@@ -3,16 +3,15 @@ import '../login/login_code_connect.dart';
 import '../login/login_main.dart';
 import '../util/color.dart';
 import '../widget/lightappbar.dart';
-import 'gardenmain.dart';
 
-class GardenComplete extends StatefulWidget {
-  const GardenComplete({super.key});
+class deleteAskPage extends StatefulWidget {
+  const deleteAskPage({super.key});
 
   @override
-  State<GardenComplete> createState() => _GardenCompleteState();
+  State<deleteAskPage> createState() => _GardenCompleteState();
 }
 
-class _GardenCompleteState extends State<GardenComplete> {
+class _GardenCompleteState extends State<deleteAskPage> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -31,10 +30,15 @@ class _GardenCompleteState extends State<GardenComplete> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    'assets/garden_complete.png',
-                    fit: BoxFit.contain,
-                    height: 188,
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: screenWidth *
+                            0.14), // Adjust the left padding value as needed
+                    child: Image.asset(
+                      'assets/deleteAsk.png',
+                      fit: BoxFit.contain,
+                      height: 188,
+                    ),
                   ),
                   SizedBox(height: 40),
                   Column(
@@ -42,21 +46,12 @@ class _GardenCompleteState extends State<GardenComplete> {
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            '추가 성공!',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '새로운 꽃이 피었어요!',
+                            '정말 삭제 하실 건가요?',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -72,35 +67,57 @@ class _GardenCompleteState extends State<GardenComplete> {
           ),
           Container(
             margin: EdgeInsets.fromLTRB(0, 0, 0, 60),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment
+                  .spaceEvenly, // Adjust the alignment as needed
               children: [
                 ElevatedButton(
                   onPressed: () {
                     // Handle button press, navigate to GardenMain page, for example
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => GardenMain()),
-                    );
+  
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        primaryColor, // Set the button color to the primary color
+                    backgroundColor: primaryColor,
                     minimumSize: Size(
-                        screenWidth * 0.8,
-                        screenHeight *
-                            0.063), // Set the width as a percentage of the screen width
+                      screenWidth *
+                          0.42, // Adjust the width of the first button
+                      screenHeight * 0.053,
+                    ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          8.0), // Adjust the value to change the corner radius
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
                   child: Text(
-                    '확인',
+                    '취소',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white, // Set the text color to white
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle button press for the second button
+                    // Add your logic or navigation here
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: primaryColor,
+                    minimumSize: Size(
+                      screenWidth *
+                          0.42, // Adjust the width of the second button
+                      screenHeight * 0.053,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                  child: Text(
+                    '삭제',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ),
