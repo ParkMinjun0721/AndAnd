@@ -1,3 +1,4 @@
+import 'package:andand/myPage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -45,10 +46,20 @@ class _BottomNaviState extends State<BottomNavi> {
         currentIndex: widget.selectedIndex,
         unselectedItemColor: Color.fromARGB(255, 210, 209, 209),
         type: BottomNavigationBarType.fixed,
-        onTap: widget.onItemTapped,
+        onTap: (index) {
+          widget.onItemTapped(index); // Call the provided onTap function
+
+          // Check if the selected index corresponds to the person icon
+          if (index == 2) {
+            // Navigate to MyPage
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MyPage()),
+            );
+          }
+        },
         selectedItemColor: Color(0xFF87BD9D),
       ),
     );
   }
 }
-
