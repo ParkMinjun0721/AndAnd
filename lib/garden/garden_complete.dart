@@ -1,62 +1,103 @@
-import 'package:andand/login/login_main.dart';
 import 'package:flutter/material.dart';
+import '../login/login_code_connect.dart';
+import '../login/login_main.dart';
+import '../util/color.dart';
 import '../widget/lightappbar.dart';
-import 'package:andand/login/login_code_connect.dart';
+import 'gardenmain.dart';
 
-
-class Garden_complete extends StatefulWidget {
-  const Garden_complete({super.key});
+class GardenComplete extends StatefulWidget {
+  const GardenComplete({super.key});
 
   @override
-  State<Garden_complete> createState() => _Garden_CompleteState();
+  State<GardenComplete> createState() => _GardenCompleteState();
 }
 
-class _Garden_CompleteState extends State<Garden_complete> {
+class _GardenCompleteState extends State<GardenComplete> {
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    return Scaffold(backgroundColor: LoginPage.backgroundMain,
+
+    // Assuming lightColorScheme is an instance of your light theme
+    Color primaryColor = lightColorScheme.primary;
+
+    return Scaffold(
+      backgroundColor: LoginPage.backgroundMain,
       appBar: const BaseAppBar(),
       body: Column(
         children: [
           Expanded(
             child: Center(
-              child: Column(mainAxisAlignment: MainAxisAlignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset('assets/garden_complete.png', fit: BoxFit.contain, height: 188,),
                   SizedBox(height: 40),
-                  Column(mainAxisAlignment: MainAxisAlignment.center,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      loginText("환영합니다!", fontSize: 18, fontWeight: FontWeight.bold),
-                      Row(mainAxisAlignment: MainAxisAlignment.center,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          loginText("안하경", fontSize: 18, fontWeight: FontWeight.bold),
-                          loginText("님의 하루하루를 응원해요!", fontSize: 18, fontWeight: FontWeight.bold),
+                          Text(
+                            '추가 성공!',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ],
                       ),
-                    ],),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            '새로운 꽃이 피었어요!',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
           ),
-          Container(margin: EdgeInsets.fromLTRB(0, 0, 0, 60),
+          Container(
+            margin: EdgeInsets.fromLTRB(0, 0, 0, 60),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                loginContainer_green("오늘 하루 시작하기", screenWidth),
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle button press, navigate to GardenMain page, for example
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => GardenMain()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: primaryColor, // Set the button color to the primary color
+                    minimumSize: Size(screenWidth * 0.8,screenHeight*0.063), // Set the width as a percentage of the screen width
+                  ),
+                  child: Text(
+                    '확인',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white, // Set the text color to white
+                    ),
+                  ),
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: Garden_complete(),
-  ));
 }
