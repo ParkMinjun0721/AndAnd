@@ -1,3 +1,7 @@
+import 'package:andand/login/login_code_connect.dart';
+import 'package:andand/login/login_connect_complete.dart';
+import 'package:andand/login/login_main.dart';
+import 'package:andand/login/login_register.dart';
 import 'package:flutter/material.dart';
 import 'util/color.dart';
 import 'home.dart';
@@ -17,7 +21,7 @@ class MyApp extends StatelessWidget {
         primaryColor: lightColorScheme.primary,
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo'),
+      home: const LoginRegister (),
     );
   }
 }

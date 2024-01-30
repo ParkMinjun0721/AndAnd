@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
                 Column(
                   children: [
                     Container(
-                      child: Image.asset('assets/logo_green_with_and.png',fit: BoxFit.contain ,height: 188),
+                      child: Image.asset('assets/logo_green_with_and.png'),
                     ),
                     Container(
                       child: Text('앤드앤드',
