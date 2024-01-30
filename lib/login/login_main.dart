@@ -4,6 +4,7 @@ class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   static const mainColor = Color(0xff87BD9D);
+  static const backgroundMain = Color(0xffF6F6F6);
   @override
   Widget build(BuildContext context) {
     return Center(
