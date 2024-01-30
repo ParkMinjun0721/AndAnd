@@ -40,7 +40,16 @@ class _BottomNaviState extends State<BottomNavi> {
             label: ' ',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, size: 37), // Use Icons.person_rounded here
+            icon: GestureDetector(
+              onTap: () {
+                // Navigate to MyPage when the person icon is tapped
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyPage()),
+                );
+              },
+              child: Icon(Icons.person, size: 37),
+            ),
             label: ' ',
           ),
         ],
