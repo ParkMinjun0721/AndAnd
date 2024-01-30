@@ -32,10 +32,12 @@ class LightAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Navigator.pop(context);
               },
             ),
-            SizedBox(width: screenWidth * 0.05), // Adjust the spacing as needed
-            Image.asset(
-              'assets/andlogo.png',
-              height: screenHeight * 0.5,
+            SizedBox(width: screenWidth * 0.3), // Adjust the spacing as needed
+            Center(
+              child: Image.asset(
+                'assets/andlogo.png',
+                height: screenHeight * 0.5,
+              ),
             ),
           ],
         ),

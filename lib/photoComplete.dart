@@ -22,7 +22,7 @@ class _photoCompleteState extends State<photoComplete> {
 
     return Scaffold(
       backgroundColor: LoginPage.backgroundMain,
-      appBar: const BaseAppBar(),
+      appBar: const LightAppBar(),
       body: Column(
         children: [
           Expanded(

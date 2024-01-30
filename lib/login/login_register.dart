@@ -24,11 +24,15 @@ class _LoginRegisterState extends State<LoginRegister> {
                 child: Text("Hello, World!"),
               )
             ],
-    final screenWidth = MediaQuery.of(context).size.width;
+          )
+        )
+      )
+    );
+          final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final formKey = GlobalKey<FormState>();
     return Scaffold(backgroundColor: LoginPage.backgroundMain,
-      appBar: BaseAppBar(),
+      appBar: LightAppBar(),
       body: Form(
         key: formKey,
         child: Center(

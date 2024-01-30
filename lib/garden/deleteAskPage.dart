@@ -22,7 +22,7 @@ class _GardenCompleteState extends State<deleteAskPage> {
 
     return Scaffold(
       backgroundColor: LoginPage.backgroundMain,
-      appBar: const BaseAppBar(),
+      appBar: const LightAppBar(),
       body: Column(
         children: [
           Expanded(
