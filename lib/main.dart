@@ -1,4 +1,7 @@
+import 'package:andand/login/login_code_connect.dart';
+import 'package:andand/login/login_connect_complete.dart';
 import 'package:andand/login/login_main.dart';
+import 'package:andand/login/login_register.dart';
 import 'package:flutter/material.dart';
 import 'widget/bottomNavi.dart';
 import 'widget/baseappbar.dart';
@@ -18,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo'),
+      home: const LoginRegister (),
     );
   }
 }
