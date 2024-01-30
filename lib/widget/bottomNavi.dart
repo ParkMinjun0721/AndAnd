@@ -1,3 +1,7 @@
+
+import 'package:andand/marketComplete.dart';
+import 'package:andand/myPage.dart';
+import 'package:andand/photoComplete.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -30,7 +34,16 @@ class _BottomNaviState extends State<BottomNavi> {
       child: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.book, size: 30),
+            icon: GestureDetector(
+            onTap: () {
+                // Navigate to MyPage when the person icon is tapped
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => photoComplete()),
+                );
+              },
+            child: FaIcon(FontAwesomeIcons.book, size: 30),
+            ),
             label: ' ',
           ),
           BottomNavigationBarItem(
@@ -38,7 +51,16 @@ class _BottomNaviState extends State<BottomNavi> {
             label: ' ',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, size: 37), // Use Icons.person_rounded here
+            icon: GestureDetector(
+              onTap: () {
+                // Navigate to MyPage when the person icon is tapped
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyPage()),
+                );
+              },
+              child: Icon(Icons.person, size: 37),
+            ),
             label: ' ',
           ),
         ],
@@ -51,4 +73,3 @@ class _BottomNaviState extends State<BottomNavi> {
     );
   }
 }
-
