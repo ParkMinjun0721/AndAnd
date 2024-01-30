@@ -72,6 +72,8 @@ flutter:
      - assets/lightlogo.png
      - assets/mainbear.png
      - assets/bear_welcome.png
+     - assets/moneybear.png
+     - assets/camera.png
     #   - images/a_dot_ham.jpeg
 
 

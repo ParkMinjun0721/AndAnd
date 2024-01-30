@@ -12,7 +12,7 @@ class _LoginRegisterState extends State<LoginRegister> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BaseAppBar(),
+      appBar: LightAppBar(),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
