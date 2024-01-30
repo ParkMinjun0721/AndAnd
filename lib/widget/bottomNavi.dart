@@ -1,3 +1,4 @@
+
 import 'package:andand/myPage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -39,25 +40,23 @@ class _BottomNaviState extends State<BottomNavi> {
             label: ' ',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, size: 37), // Use Icons.person_rounded here
+            icon: GestureDetector(
+              onTap: () {
+                // Navigate to MyPage when the person icon is tapped
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyPage()),
+                );
+              },
+              child: Icon(Icons.person, size: 37),
+            ),
             label: ' ',
           ),
         ],
         currentIndex: widget.selectedIndex,
         unselectedItemColor: Color.fromARGB(255, 210, 209, 209),
         type: BottomNavigationBarType.fixed,
-        onTap: (index) {
-          widget.onItemTapped(index); // Call the provided onTap function
-
-          // Check if the selected index corresponds to the person icon
-          if (index == 2) {
-            // Navigate to MyPage
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MyPage()),
-            );
-          }
-        },
+        onTap: widget.onItemTapped,
         selectedItemColor: Color(0xFF87BD9D),
       ),
     );
