@@ -83,8 +83,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "10.6.0"
-<<<<<<< HEAD
-=======
   intl:
     dependency: transitive
     description:
@@ -93,7 +91,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.18.1"
->>>>>>> hak
   lints:
     dependency: transitive
     description:
@@ -221,7 +218,4 @@ packages:
     version: "0.1.4-beta"
 sdks:
   dart: ">=3.1.0-185.0.dev <4.0.0"
-<<<<<<< HEAD
-=======
   flutter: ">=1.17.0"
->>>>>>> hak
