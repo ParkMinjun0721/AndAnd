@@ -14,6 +14,16 @@ class LoginRegister extends StatefulWidget {
 class _LoginRegisterState extends State<LoginRegister> {
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: LightAppBar(),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                child: Text("Hello, World!"),
+              )
+            ],
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final formKey = GlobalKey<FormState>();

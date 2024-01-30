@@ -75,6 +75,8 @@ flutter:
      - assets/your_image.png
      - assets/mainbear.png
      - assets/bear_welcome.png
+     - assets/moneybear.png
+     - assets/camera.png
      - assets/garden2.jpg
      - assets/garden_complete.png
      - assets/deleteAsk.png
