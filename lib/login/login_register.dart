@@ -3,6 +3,10 @@ import 'package:andand/login/login_main.dart';
 import 'package:flutter/material.dart';
 import 'package:andand/widget/lightappbar.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:andand/util/color.dart';
 
 class LoginRegister extends StatefulWidget {
   const LoginRegister({super.key});
@@ -13,22 +17,21 @@ class LoginRegister extends StatefulWidget {
 
 class _LoginRegisterState extends State<LoginRegister> {
   @override
+  TextEditingController _BirthdayController =
+  TextEditingController(text: '');
+  DateTime? tempPickedDate;
+  DateTime _selectedDate = DateTime.now();
+
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: LightAppBar(),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                child: Text("Hello, World!"),
-              )
-            ],
-          )
-        )
-      )
-    );
-          final screenWidth = MediaQuery.of(context).size.width;
+    localizationsDelegates: [
+      GlobalCupertinoLocalizations.delegate,
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+    ];
+    supportedLocales: [
+    Locale('ko', 'KR'), // 한국어 지원
+    ];
+    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final formKey = GlobalKey<FormState>();
     return Scaffold(backgroundColor: LoginPage.backgroundMain,
@@ -39,15 +42,52 @@ class _LoginRegisterState extends State<LoginRegister> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const Column(mainAxisAlignment: MainAxisAlignment.center,
+                Column(mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage('assets/bear_use_labtop.png'),
-                    ),
+                    Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                              radius: MediaQuery.of(context).size.height * 0.065,
+                              backgroundImage: AssetImage('assets/your_image.png'),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.013,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: MediaQuery.of(context).size.height * 0.10,
+                        right: MediaQuery.of(context).size.width * 0.40,
+                        child: InkWell(
+                          onTap: () {
+                            // Handle icon tap if needed
+                          },
+                          child: CircleAvatar(
+                            radius: MediaQuery.of(context).size.width * 0.033,
+                            backgroundColor:
+                            const Color.fromARGB(255, 255, 255, 255),
+                            child: Icon(
+                              Icons.camera_alt_outlined,
+                              size: MediaQuery.of(context).size.width * 0.045,
+                              color: lightColorScheme.primary,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   ],
                 ),
-                Container(margin: EdgeInsets.fromLTRB(0, 30, 0, 10), width : screenWidth*0.9, child: Divider(color: LoginPage.mainColor)),
+                Container(margin: EdgeInsets.fromLTRB(0, 20, 0, 10), width : screenWidth*0.9, child: Divider(color: LoginPage.mainColor)),
                 Container(margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
                   child:
                   loginText("회원정보를 입력해주세요", color: LoginPage.mainColor, fontWeight: FontWeight.bold, fontSize: 20)),
@@ -64,8 +104,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                     Container(width: screenWidth*0.8,
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(margin: EdgeInsets.fromLTRB(0, 5, 0, 5),child: Text("생년월일",style: TextStyle(fontWeight: FontWeight.w600))),
-                          TextFormFieldComponent(false, TextInputType.datetime,TextInputAction.next, "생년월일", 20, "이름은 2자 이상입니다."),
+                          BirthdayText(screenHeight*0.4),
                         ],
                       ),
                     ),
@@ -73,7 +112,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(margin: EdgeInsets.fromLTRB(0, 5, 0, 5),child: Text("전화번호",style: TextStyle(fontWeight: FontWeight.w600))),
-                          TextFormFieldCall(false, TextInputType.phone,TextInputAction.next, "01XXXXXXXXX", 20, "이름은 2자 이상입니다.",screenWidth),
+                          TextFormFieldCall(false, TextInputType.phone,TextInputAction.next, "01XXXXXXXXX", 11, "이름은 2자 이상입니다.",screenWidth),
                         ],
                       ),
                     ),
@@ -91,7 +130,9 @@ class _LoginRegisterState extends State<LoginRegister> {
                   child: CircleAvatar(
                     radius: 30  ,
                     backgroundColor: LoginPage.mainColor,
-                    child: IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward, color: Colors.white,),iconSize: 30,),
+                    child: IconButton(onPressed: (){
+                        // Navigator.pushNamed(context, '/login_code_connect');
+                    }, icon: Icon(Icons.arrow_forward, color: Colors.white,),iconSize: 30,),
                   )
                   ),),
               ],
@@ -100,6 +141,95 @@ class _LoginRegisterState extends State<LoginRegister> {
         ),
       )
     );
+  }
+  Widget BirthdayText(double height) {
+    return GestureDetector(
+      onTap: () {
+        HapticFeedback.mediumImpact();
+        _selectDate(height);
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(margin: EdgeInsets.fromLTRB(0, 5, 0, 5),child: Text("생년월일",style: TextStyle(fontWeight: FontWeight.w600))),
+          TextFormFieldAge(false, TextInputType.datetime,TextInputAction.next, "생년월일", 20, "이름은 2자 이상입니다.",_BirthdayController),
+        ],
+      ),
+    );
+  }
+
+  _selectDate(double height) async {
+    DateTime? pickedDate = await showModalBottomSheet<DateTime>(
+      backgroundColor: ThemeData.light().scaffoldBackgroundColor,
+      context: context,
+      builder: (context) {
+        // DateTime tempPickedDate;
+        return Container(
+          height: height,
+          child: Column(
+            children: <Widget>[
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    CupertinoButton(
+                      child: Text('취소'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        FocusScope.of(context).unfocus();
+                      },
+                    ),
+                    CupertinoButton(
+                      child: Text('완료'),
+                      onPressed: () {
+                        Navigator.of(context).pop(tempPickedDate);
+                        FocusScope.of(context).unfocus();
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              Divider(
+                height: 0,
+                thickness: 1,
+              ),
+              Expanded(
+                child: Container(
+                  child: CupertinoDatePicker(
+                    backgroundColor: ThemeData.light().scaffoldBackgroundColor,
+                    minimumYear: 1900,
+                    maximumYear: DateTime.now().year,
+                    initialDateTime: DateTime(2000,1,1),
+                    maximumDate: DateTime.now(),
+                    mode: CupertinoDatePickerMode.date,
+                    onDateTimeChanged: (DateTime dateTime) {
+                      tempPickedDate = dateTime;
+                    },
+                    dateOrder: DatePickerDateOrder.ymd,
+
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+
+    if (pickedDate != null && pickedDate != _selectedDate) {
+      setState(() {
+        _selectedDate = pickedDate;
+        _BirthdayController.text = pickedDate.toString();
+        convertDateTimeDisplay(_BirthdayController.text);
+      });
+    }
+  }
+
+  String convertDateTimeDisplay(String date) {
+    final DateFormat displayFormater = DateFormat('yyyy-MM-dd HH:mm:ss.SSS');
+    final DateFormat serverFormater = DateFormat('yyyy-MM-dd');
+    final DateTime displayDate = displayFormater.parse(date);
+    return _BirthdayController.text = serverFormater.format(displayDate);
   }
 }
 
@@ -115,6 +245,30 @@ Widget TextFormFieldComponent(bool obscureText, TextInputType keyboardType, Text
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5),borderSide: BorderSide.none),
         fillColor: Colors.white,
       ),
+      validator: (value){
+        if (value!.length < maxSize) {
+          return errorMessage;
+        }
+      },
+    ),
+  );
+}
+
+Widget TextFormFieldAge(bool obscureText, TextInputType keyboardType, TextInputAction textInputAction,String hintText, int maxSize, String errorMessage, TextEditingController textEditingController){
+  return Container(decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(5)),
+    child: TextFormField(
+      obscureText: obscureText,
+      keyboardType: keyboardType,
+      textInputAction: textInputAction,
+      enabled: false,
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: TextStyle(color: Color(0xffADADAD), fontSize: 15, fontWeight: FontWeight.bold),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(5),borderSide: BorderSide.none),
+        fillColor: Colors.white,
+        isDense: true,
+      ),
+      controller: textEditingController,
       validator: (value){
         if (value!.length < maxSize) {
           return errorMessage;

@@ -16,6 +16,7 @@ class _LoginConnectCompleteState extends State<LoginConnectComplete> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    String name1234 = "안하경";
     return Scaffold(backgroundColor: LoginPage.backgroundMain,
       appBar: const LightAppBar(),
       body: Column(
@@ -31,7 +32,7 @@ class _LoginConnectCompleteState extends State<LoginConnectComplete> {
                       loginText("환영합니다!", fontSize: 18, fontWeight: FontWeight.bold),
                       Row(mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          loginText("안하경", fontSize: 18, fontWeight: FontWeight.bold),
+                          loginText(name1234, fontSize: 18, fontWeight: FontWeight.bold, color: LoginPage.mainColor),
                           loginText("님의 하루하루를 응원해요!", fontSize: 18, fontWeight: FontWeight.bold),
                         ],
                       ),
