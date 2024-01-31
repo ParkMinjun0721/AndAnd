@@ -1,4 +1,5 @@
 
+import 'package:andand/garden/gardenmain.dart';
 import 'package:andand/marketComplete.dart';
 import 'package:andand/myPage.dart';
 import 'package:andand/photoComplete.dart';
@@ -39,7 +40,7 @@ class _BottomNaviState extends State<BottomNavi> {
                 // Navigate to MyPage when the person icon is tapped
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => photoComplete()),
+                  MaterialPageRoute(builder: (context) => GardenMain()),
                 );
               },
             child: FaIcon(FontAwesomeIcons.book, size: 30),
@@ -47,7 +48,7 @@ class _BottomNaviState extends State<BottomNavi> {
             label: ' ',
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.home, size: 30),
+            icon:  FaIcon(FontAwesomeIcons.home, size: 30),
             label: ' ',
           ),
           BottomNavigationBarItem(
