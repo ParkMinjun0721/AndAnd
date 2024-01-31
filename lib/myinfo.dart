@@ -165,7 +165,7 @@ class _MyInfoState extends State<MyInfo> {
                       ),
                       InkWell(
                         onTap: () {
-                          _showEditDialog('전화번호:', birthday);
+                          _showEditDialog('전화번호', phoneNumber);
                         },
                         child: Padding(
                           padding: EdgeInsets.only(
