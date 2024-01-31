@@ -1,5 +1,6 @@
 import 'package:andand/calendar.dart';
 import 'package:andand/myinfo.dart';
+import 'package:andand/settings.dart';
 import 'package:andand/widget/bottomNavi.dart';
 import 'package:flutter/material.dart';
 import 'package:andand/util/color.dart';
@@ -220,11 +221,11 @@ class MyPage extends StatelessWidget {
                                 top: 8.0,
                               ),
                               child: CircleAvatar(
-                                radius: 25.0,
+                                radius: MediaQuery.of(context).size.width * 0.06,
                                 backgroundColor: Color(0xFFE8F3F1),
                                 child: Icon(
                                   Icons.favorite_border,
-                                  size: 30.0,
+                                  size: MediaQuery.of(context).size.width * 0.07,
                                   color: Color(0xFF87BD9D),
                                 ),
                               ),
@@ -291,11 +292,11 @@ class MyPage extends StatelessWidget {
                                 left: MediaQuery.of(context).size.width * 0.07,
                               ),
                               child: CircleAvatar(
-                                radius: 25.0,
+                                radius: MediaQuery.of(context).size.width * 0.06,
                                 backgroundColor: Color(0xFFE8F3F1),
                                 child: Icon(
                                   Icons.text_snippet_outlined,
-                                  size: 30.0,
+                                  size: MediaQuery.of(context).size.width * 0.07,
                                   color: Color(0xFF87BD9D),
                                 ),
                               ),
@@ -342,51 +343,62 @@ class MyPage extends StatelessWidget {
 
                     // Section 3
                     Expanded(
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.07),
-                            child: CircleAvatar(
-                              radius: 25.0,
-                              backgroundColor: Color(0xFFE8F3F1),
-                              child: Icon(
-                                Icons.textsms_outlined,
-                                size: 28.0,
-                                color: Color(0xFF87BD9D),
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: 25.0),
-                          Expanded(
-                            child: Padding(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SettingsScreen()),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Padding(
                               padding: EdgeInsets.only(
-                                  right:
-                                      MediaQuery.of(context).size.width * 0.04),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    '문의상항 및 설정',
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  Icon(
-                                    Icons.arrow_forward_ios,
-                                    size: MediaQuery.of(context).size.width *
-                                        0.05,
-                                    color: Colors.black,
-                                  ),
-                                ],
+                                  left:
+                                      MediaQuery.of(context).size.width * 0.07),
+                              child: CircleAvatar(
+                                radius: MediaQuery.of(context).size.width * 0.06,
+                                backgroundColor: Color(0xFFE8F3F1),
+                                child: Icon(
+                                  Icons.settings,
+                                  size: MediaQuery.of(context).size.width * 0.07,
+                                  color: Color(0xFF87BD9D),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                            SizedBox(width: 25.0),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    right: MediaQuery.of(context).size.width *
+                                        0.04),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      '설정 및 문의사항',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: MediaQuery.of(context).size.width *
+                                          0.05,
+                                      color: Colors.black,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
+
                     Divider(
                       color: Color(0xFFE8F3F1),
                       thickness: 1.0,
@@ -402,11 +414,11 @@ class MyPage extends StatelessWidget {
                             padding: EdgeInsets.only(
                                 left: MediaQuery.of(context).size.width * 0.07),
                             child: CircleAvatar(
-                              radius: 25.0,
+                              radius: MediaQuery.of(context).size.width * 0.06,
                               backgroundColor: Color(0xFFE8F3F1),
                               child: Icon(
                                 Icons.storefront,
-                                size: 30.0,
+                                size: MediaQuery.of(context).size.width * 0.07,
                                 color: Color(0xFF87BD9D),
                               ),
                             ),
@@ -456,11 +468,11 @@ class MyPage extends StatelessWidget {
                             padding: EdgeInsets.only(
                                 left: MediaQuery.of(context).size.width * 0.07),
                             child: CircleAvatar(
-                              radius: 25.0,
+                              radius: MediaQuery.of(context).size.width * 0.06,
                               backgroundColor: Color(0xFFE8F3F1),
                               child: Icon(
                                 Icons.exit_to_app,
-                                size: 30.0,
+                                size: MediaQuery.of(context).size.width * 0.07,
                                 color: Colors.red,
                               ),
                             ),
