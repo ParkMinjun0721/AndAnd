@@ -22,7 +22,7 @@ class _marketCompleteState extends State<marketComplete> {
 
     return Scaffold(
       backgroundColor: LoginPage.backgroundMain,
-      appBar: const BaseAppBar(),
+      appBar: const LightAppBar(),
       body: Column(
         children: [
           Expanded(

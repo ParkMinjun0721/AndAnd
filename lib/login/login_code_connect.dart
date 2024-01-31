@@ -17,7 +17,7 @@ class _LoginCodeConnectState extends State<LoginCodeConnect> {
     // width: screenWidth * 0.9,
     // height: screenHeight * 0.6,
     return Scaffold(backgroundColor: LoginPage.backgroundMain,
-      appBar: BaseAppBar(),
+      appBar: LightAppBar(),
       body: Center(
         child: SingleChildScrollView(
           child: Column(

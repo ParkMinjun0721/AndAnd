@@ -23,7 +23,7 @@ class _GardenCompleteState extends State<GardenComplete> {
 
     return Scaffold(
       backgroundColor: LoginPage.backgroundMain,
-      appBar: const BaseAppBar(),
+      appBar: const LightAppBar(),
       body: Column(
         children: [
           Expanded(

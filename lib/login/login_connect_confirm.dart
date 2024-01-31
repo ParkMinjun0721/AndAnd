@@ -16,7 +16,7 @@ class _LoginConnectConfirmState extends State<LoginConnectConfirm> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(backgroundColor: LoginPage.backgroundMain,
-      appBar: const BaseAppBar(),
+      appBar: const LightAppBar(),
       body: Column(
         children: [
           Expanded(
