@@ -44,38 +44,42 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAOKZXtCZYNBif55y88Hs313WbvgFL3Fv4',
-    appId: '1:188444860939:web:5969d9a976d5d7e2a6dd0e',
-    messagingSenderId: '188444860939',
-    projectId: 'andand-db',
-    authDomain: 'andand-db.firebaseapp.com',
-    storageBucket: 'andand-db.appspot.com',
-    measurementId: 'G-P8DT1J74LY',
+    apiKey: 'AIzaSyAaaP9xCD2PzQBBpKysAAbCLQz5zpsUxjs',
+    appId: '1:22819091903:web:42f2d16323dd02692f1d0a',
+    messagingSenderId: '22819091903',
+    projectId: 'dbbase-andand',
+    authDomain: 'dbbase-andand.firebaseapp.com',
+    storageBucket: 'dbbase-andand.appspot.com',
+    measurementId: 'G-JF1MW53LT1',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDnzBLiIivuDM4OYJ5nGuMJgEx8iAOOWxw',
-    appId: '1:188444860939:android:cdfb412e9da28883a6dd0e',
-    messagingSenderId: '188444860939',
-    projectId: 'andand-db',
-    storageBucket: 'andand-db.appspot.com',
+    apiKey: 'AIzaSyDGnk3_ioSaYP2fHcs97nYwEiGGJWfPpro',
+    appId: '1:22819091903:android:0494ab78cffd62db2f1d0a',
+    messagingSenderId: '22819091903',
+    projectId: 'dbbase-andand',
+    storageBucket: 'dbbase-andand.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDysMx_TaDTBxAHeTrhhQ7A-6jQQ0Jw_mQ',
-    appId: '1:188444860939:ios:b916742e32f168e9a6dd0e',
-    messagingSenderId: '188444860939',
-    projectId: 'andand-db',
-    storageBucket: 'andand-db.appspot.com',
+    apiKey: 'AIzaSyBmF6rbv6i2Sikh3hHfYnXpKwUJ0MDR4XM',
+    appId: '1:22819091903:ios:e97a07c2a1ed5acb2f1d0a',
+    messagingSenderId: '22819091903',
+    projectId: 'dbbase-andand',
+    storageBucket: 'dbbase-andand.appspot.com',
+    androidClientId: '22819091903-7emb9mku038dfnf25jhuogfgdlfnrps6.apps.googleusercontent.com',
+    iosClientId: '22819091903-pn1nvjak1ba9etfm4jtubv8us453n4v0.apps.googleusercontent.com',
     iosBundleId: 'com.example.andand',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDysMx_TaDTBxAHeTrhhQ7A-6jQQ0Jw_mQ',
-    appId: '1:188444860939:ios:9041eebaff9f1023a6dd0e',
-    messagingSenderId: '188444860939',
-    projectId: 'andand-db',
-    storageBucket: 'andand-db.appspot.com',
+    apiKey: 'AIzaSyBmF6rbv6i2Sikh3hHfYnXpKwUJ0MDR4XM',
+    appId: '1:22819091903:ios:c87578f54d81b58f2f1d0a',
+    messagingSenderId: '22819091903',
+    projectId: 'dbbase-andand',
+    storageBucket: 'dbbase-andand.appspot.com',
+    androidClientId: '22819091903-7emb9mku038dfnf25jhuogfgdlfnrps6.apps.googleusercontent.com',
+    iosClientId: '22819091903-psqgpojbvu77ig7ofoknn4utc8vvgv3k.apps.googleusercontent.com',
     iosBundleId: 'com.example.andand.RunnerTests',
   );
 }

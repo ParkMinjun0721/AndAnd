@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:andand/widget/baseappbar.dart';
-import 'package:andand/widget/bottomNavi.dart';
 
-
-class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const BaseAppBar({Key? key}) : super(key: key);
+class LightAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const LightAppBar({Key? key}) : super(key: key);
 
   static const IconData arrowBackIcon = IconData(
     0xf571,
@@ -16,26 +13,31 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    final bool automaticallyImplyLeading;
     // width: screenWidth * 0.9,
     // height: screenHeight * 0.6,
+    
     return AppBar(
       backgroundColor: Color(0xFF87BD9D).withOpacity(0.05),
+      automaticallyImplyLeading: false,
       elevation: 0.3,
       flexibleSpace: SafeArea(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             IconButton(
-              padding: const EdgeInsets.only(top: 10, left: 5),
+              padding: const EdgeInsets.only(top: 10, left: 10),
               icon: Icon(arrowBackIcon),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
-            SizedBox(width: screenWidth * 0.3),
-            Image.asset(
-              'assets/andlogo.png',
-              height: screenHeight * 0.5,
+            SizedBox(width: screenWidth * 0.3), // Adjust the spacing as needed
+            Center(
+              child: Image.asset(
+                'assets/andlogo.png',
+                height: screenHeight * 0.5,
+              ),
             ),
           ],
         ),

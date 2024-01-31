@@ -57,16 +57,20 @@ class LoginPage extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () async {
-                  // Call the signInWithGoogle function when the image is tapped
-                  UserCredential userCredential = await signInWithGoogle(context);
+                  try {
+                    // Call the signInWithGoogle function when the image is tapped
+                    UserCredential userCredential = await signInWithGoogle(context);
 
-                  // Check if the login was successful before navigating
-                  if (userCredential.user != null) {
-                    // Navigate to the main page (replace with your main page class)
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => MainPage()),
-                    );
+                    // Check if the login was successful before navigating
+                    if (userCredential.user != null) {
+                      // Navigate to the main page (replace with your main page class)
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => MainPage()),
+                      );
+                    }
+                  } catch (e) {
+                    print("Error during sign in with Google: $e");
                   }
                 },
                 child: Container(
@@ -98,11 +102,16 @@ class MainPage extends StatelessWidget {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
 
-  runApp(MaterialApp(
-    home: LoginPage(),
-  ));
+    runApp(MaterialApp(
+      home: LoginPage(),
+    ));
+  } catch (e) {
+    print("Error during Firebase initialization: $e");
+  }
 }
+
