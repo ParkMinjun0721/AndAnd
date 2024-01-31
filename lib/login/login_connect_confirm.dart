@@ -15,6 +15,7 @@ class _LoginConnectConfirmState extends State<LoginConnectConfirm> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    String name123 = "안하경";
     return Scaffold(backgroundColor: LoginPage.backgroundMain,
       appBar: const LightAppBar(),
       body: Column(
@@ -30,7 +31,7 @@ class _LoginConnectConfirmState extends State<LoginConnectConfirm> {
                   SizedBox(height: 40),
                   Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      loginText("안하경", fontSize: 20, fontWeight: FontWeight.bold, color: LoginPage.mainColor),
+                      loginText(name123, fontSize: 20, fontWeight: FontWeight.bold, color: LoginPage.mainColor),
                       loginText(" 님과 연결하시겠습니까?", fontSize: 20, fontWeight: FontWeight.bold),
                     ],
                   ),
