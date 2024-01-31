@@ -15,6 +15,7 @@ class _LoginRegisterState extends State<LoginRegister> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final formKey = GlobalKey<FormState>();
+
     return Scaffold(backgroundColor: LoginPage.backgroundMain,
       appBar: BaseAppBar(),
       body: Form(
