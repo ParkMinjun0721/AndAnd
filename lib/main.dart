@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'splash_page.dart';
 import 'util/color.dart';
-import 'home.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 void main() {
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        localizationsDelegates: [
+        localizationsDelegates: const [
           GlobalCupertinoLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        supportedLocales: [
+        supportedLocales: const [
         Locale('ko', 'KR'), // 한국어 지원
     ],
       title: 'Andand',
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         primaryColor: lightColorScheme.primary,
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

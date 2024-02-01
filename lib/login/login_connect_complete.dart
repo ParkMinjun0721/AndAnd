@@ -26,7 +26,7 @@ class _LoginConnectCompleteState extends State<LoginConnectComplete> {
               child: Column(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset('assets/bear_welcome.png', fit: BoxFit.contain, height: 188,),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   Column(mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       loginText("환영합니다!", fontSize: 18, fontWeight: FontWeight.bold),
@@ -41,7 +41,7 @@ class _LoginConnectCompleteState extends State<LoginConnectComplete> {
               ),
             ),
           ),
-          Container(margin: EdgeInsets.fromLTRB(0, 0, 0, 60),
+          Container(margin: const EdgeInsets.fromLTRB(0, 0, 0, 60),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

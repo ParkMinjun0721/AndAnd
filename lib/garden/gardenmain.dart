@@ -22,7 +22,7 @@ class _GardenMainState extends State<GardenMain> {
     setState(() {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => FlowerBook()),
+        MaterialPageRoute(builder: (context) => const FlowerBook()),
       );
     });
   }
@@ -32,8 +32,8 @@ class _GardenMainState extends State<GardenMain> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title:  Center(child : Text("사용방법")),
-          content: Text("1. + 버튼을 클릭해 꽃,풀,산과 같은 자연을 촬영 또는 업로드해주세요!\n\n"
+          title:  const Center(child : Text("사용방법")),
+          content: const Text("1. + 버튼을 클릭해 꽃,풀,산과 같은 자연을 촬영 또는 업로드해주세요!\n\n"
               "2. 꽃 사진을 추가하면 정원이 레벨 업을 해서 더욱 예쁘게 꾸며져요\n\n"
           "3. 추가된 꽃은 공유되고, 함께 도감에서 볼 수 있어요!\n\n"),
 
@@ -42,7 +42,7 @@ class _GardenMainState extends State<GardenMain> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text("닫기"),
+              child: const Text("닫기"),
             ),
           ],
         );
@@ -79,24 +79,24 @@ class _GardenMainState extends State<GardenMain> {
                   ),
                   children: <TextSpan>[
                     TextSpan(
-                      text: '$name1',
+                      text: name1,
                       style: TextStyle(
                         color: lightColorScheme.primary,
                       ),
                     ),
-                    TextSpan(
+                    const TextSpan(
                       text: '님과 ',
                       style: TextStyle(
                         color: Colors.black,
                       ),
                     ),
                     TextSpan(
-                      text: '$name2',
+                      text: name2,
                       style: TextStyle(
                         color: lightColorScheme.primary,
                       ),
                     ),
-                    TextSpan(
+                    const TextSpan(
                       text: '님의 정원',
                       style: TextStyle(
                         color: Colors.black,
@@ -113,7 +113,7 @@ class _GardenMainState extends State<GardenMain> {
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(30.0),  // 왼쪽 상단 모서리 둥글게
                 topRight: Radius.circular(30.0), // 오른쪽 상단 모서리 둥글게
               ),
@@ -130,7 +130,7 @@ class _GardenMainState extends State<GardenMain> {
               top: 20.0,
               right: MediaQuery.of(context).size.width * 0.05,
               child: IconButton(
-                icon: Icon(Icons.info_outlined),
+                icon: const Icon(Icons.info_outlined),
                 onPressed: _checkQuestion,
               ),
             ),
@@ -162,11 +162,11 @@ class _GardenMainState extends State<GardenMain> {
               left: MediaQuery.of(context).size.width * 0.05,
               child: FloatingActionButton(
                 onPressed: _checkPlus,
-                child: Icon(Icons.add),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 backgroundColor: lightColorScheme.primary,
+                child: const Icon(Icons.add),
               ),
             ),
           ],
@@ -183,7 +183,7 @@ class _GardenMainState extends State<GardenMain> {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: GardenMain(),
   ));
 }

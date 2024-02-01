@@ -17,11 +17,12 @@ class LoginRegister extends StatefulWidget {
 
 class _LoginRegisterState extends State<LoginRegister> {
   @override
-  TextEditingController _BirthdayController =
+  final TextEditingController _BirthdayController =
   TextEditingController(text: '');
   DateTime? tempPickedDate;
   DateTime _selectedDate = DateTime.now();
 
+  @override
   Widget build(BuildContext context) {
     localizationsDelegates: [
       GlobalCupertinoLocalizations.delegate,
@@ -29,13 +30,13 @@ class _LoginRegisterState extends State<LoginRegister> {
       GlobalWidgetsLocalizations.delegate,
     ];
     supportedLocales: [
-    Locale('ko', 'KR'), // 한국어 지원
+    const Locale('ko', 'KR'), // 한국어 지원
     ];
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final formKey = GlobalKey<FormState>();
     return Scaffold(backgroundColor: LoginPage.backgroundMain,
-      appBar: LightAppBar(),
+      appBar: const LightAppBar(),
       body: Form(
         key: formKey,
         child: Center(
@@ -52,12 +53,12 @@ class _LoginRegisterState extends State<LoginRegister> {
                           children: [
                             CircleAvatar(
                               radius: MediaQuery.of(context).size.height * 0.065,
-                              backgroundImage: AssetImage('assets/your_image.png'),
+                              backgroundImage: const AssetImage('assets/your_image.png'),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.013,
                             ),
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [],
                             ),
@@ -87,52 +88,52 @@ class _LoginRegisterState extends State<LoginRegister> {
                   ),
                   ],
                 ),
-                Container(margin: EdgeInsets.fromLTRB(0, 20, 0, 10), width : screenWidth*0.9, child: Divider(color: LoginPage.mainColor)),
-                Container(margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
+                Container(margin: const EdgeInsets.fromLTRB(0, 20, 0, 10), width : screenWidth*0.9, child: const Divider(color: LoginPage.mainColor)),
+                Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
                   child:
                   loginText("회원정보를 입력해주세요", color: LoginPage.mainColor, fontWeight: FontWeight.bold, fontSize: 20)),
                 Column(
                   children: [
-                    Container(width: screenWidth*0.8,
+                    SizedBox(width: screenWidth*0.8,
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(margin: EdgeInsets.fromLTRB(0, 5, 0, 5),child: Text("이름",style: TextStyle(fontWeight: FontWeight.w600))),
+                          Container(margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),child: const Text("이름",style: TextStyle(fontWeight: FontWeight.w600))),
                           TextFormFieldComponent(false, TextInputType.name,TextInputAction.next, "홍길동", 20, "이름은 2자 이상입니다."),
                         ],
                       ),
                     ),
-                    Container(width: screenWidth*0.8,
+                    SizedBox(width: screenWidth*0.8,
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           BirthdayText(screenHeight*0.4),
                         ],
                       ),
                     ),
-                    Container(width: screenWidth*0.8,
+                    SizedBox(width: screenWidth*0.8,
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(margin: EdgeInsets.fromLTRB(0, 5, 0, 5),child: Text("전화번호",style: TextStyle(fontWeight: FontWeight.w600))),
+                          Container(margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),child: const Text("전화번호",style: TextStyle(fontWeight: FontWeight.w600))),
                           TextFormFieldCall(false, TextInputType.phone,TextInputAction.next, "01XXXXXXXXX", 11, "이름은 2자 이상입니다.",screenWidth),
                         ],
                       ),
                     ),
-                    Container(width: screenWidth*0.8,
+                    SizedBox(width: screenWidth*0.8,
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start  ,
                         children: [
-                          Container(margin: EdgeInsets.fromLTRB(0, 5, 0, 5),child: Text("전화번호 인증",style: TextStyle(fontWeight: FontWeight.w600))),
+                          Container(margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),child: const Text("전화번호 인증",style: TextStyle(fontWeight: FontWeight.w600))),
                           TextFormFieldComponent(false, TextInputType.text,TextInputAction.next, "", 6, "이름은 2자 이상입니다."),
                         ],
                       ),
                     )
                   ],
                 ),
-                Container(margin: EdgeInsets.fromLTRB(0, 10, 0, 0) ,width: screenWidth*0.8,child: Container(alignment: Alignment.bottomRight,
+                Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0) ,width: screenWidth*0.8,child: Container(alignment: Alignment.bottomRight,
                   child: CircleAvatar(
                     radius: 30  ,
                     backgroundColor: LoginPage.mainColor,
                     child: IconButton(onPressed: (){
                         // Navigator.pushNamed(context, '/login_code_connect');
-                    }, icon: Icon(Icons.arrow_forward, color: Colors.white,),iconSize: 30,),
+                    }, icon: const Icon(Icons.arrow_forward, color: Colors.white,),iconSize: 30,),
                   )
                   ),),
               ],
@@ -151,7 +152,7 @@ class _LoginRegisterState extends State<LoginRegister> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(margin: EdgeInsets.fromLTRB(0, 5, 0, 5),child: Text("생년월일",style: TextStyle(fontWeight: FontWeight.w600))),
+          Container(margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),child: const Text("생년월일",style: TextStyle(fontWeight: FontWeight.w600))),
           TextFormFieldAge(false, TextInputType.datetime,TextInputAction.next, "생년월일", 20, "이름은 2자 이상입니다.",_BirthdayController),
         ],
       ),
@@ -164,7 +165,7 @@ class _LoginRegisterState extends State<LoginRegister> {
       context: context,
       builder: (context) {
         // DateTime tempPickedDate;
-        return Container(
+        return SizedBox(
           height: height,
           child: Column(
             children: <Widget>[
@@ -173,14 +174,14 @@ class _LoginRegisterState extends State<LoginRegister> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     CupertinoButton(
-                      child: Text('취소'),
+                      child: const Text('취소'),
                       onPressed: () {
                         Navigator.of(context).pop();
                         FocusScope.of(context).unfocus();
                       },
                     ),
                     CupertinoButton(
-                      child: Text('완료'),
+                      child: const Text('완료'),
                       onPressed: () {
                         Navigator.of(context).pop(tempPickedDate);
                         FocusScope.of(context).unfocus();
@@ -189,7 +190,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                   ],
                 ),
               ),
-              Divider(
+              const Divider(
                 height: 0,
                 thickness: 1,
               ),
@@ -241,7 +242,7 @@ Widget TextFormFieldComponent(bool obscureText, TextInputType keyboardType, Text
       textInputAction: textInputAction,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: TextStyle(color: Color(0xffADADAD), fontSize: 15, fontWeight: FontWeight.bold),
+        hintStyle: const TextStyle(color: Color(0xffADADAD), fontSize: 15, fontWeight: FontWeight.bold),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5),borderSide: BorderSide.none),
         fillColor: Colors.white,
       ),
@@ -249,6 +250,7 @@ Widget TextFormFieldComponent(bool obscureText, TextInputType keyboardType, Text
         if (value!.length < maxSize) {
           return errorMessage;
         }
+        return null;
       },
     ),
   );
@@ -263,7 +265,7 @@ Widget TextFormFieldAge(bool obscureText, TextInputType keyboardType, TextInputA
       enabled: false,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: TextStyle(color: Color(0xffADADAD), fontSize: 15, fontWeight: FontWeight.bold),
+        hintStyle: const TextStyle(color: Color(0xffADADAD), fontSize: 15, fontWeight: FontWeight.bold),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5),borderSide: BorderSide.none),
         fillColor: Colors.white,
         isDense: true,
@@ -273,6 +275,7 @@ Widget TextFormFieldAge(bool obscureText, TextInputType keyboardType, TextInputA
         if (value!.length < maxSize) {
           return errorMessage;
         }
+        return null;
       },
     ),
   );
@@ -301,7 +304,7 @@ Widget TextFormFieldCall(
             textInputAction: textInputAction,
             decoration: InputDecoration(
               hintText: hintText,
-              hintStyle: TextStyle(color: Color(0xffADADAD), fontSize: 15, fontWeight: FontWeight.bold),
+              hintStyle: const TextStyle(color: Color(0xffADADAD), fontSize: 15, fontWeight: FontWeight.bold),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(5), borderSide: BorderSide.none),
               fillColor: Colors.white,
             ),
@@ -309,6 +312,7 @@ Widget TextFormFieldCall(
               if (value!.length < maxSize) {
                 return errorMessage;
               }
+              return null;
             },
           ),
         ),
@@ -321,7 +325,7 @@ Widget TextFormFieldCall(
 Container loginContainer_gray(String text, double screenWidth, {Color textColor = Colors.white, double fontSize = 17.0, FontWeight fontWeight = FontWeight.w500}) {
   return Container(
     decoration: BoxDecoration(
-      color: Color(0xffADADAD),
+      color: const Color(0xffADADAD),
       borderRadius: BorderRadius.circular(5),
     ),
     width: screenWidth * 0.20,
