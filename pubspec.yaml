@@ -87,6 +87,8 @@ flutter:
      - assets/marketComplete.png
      - assets/photoComplete.png
      - assets/splash.png
+     - assets/openBook.png
+     - assets/question.png
     #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
