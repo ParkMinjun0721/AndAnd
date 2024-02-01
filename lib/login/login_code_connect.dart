@@ -1,6 +1,7 @@
 import 'package:andand/login/login_main.dart';
 import 'package:flutter/material.dart';
 import 'package:andand/widget/lightappbar.dart';
+import 'package:flutter/services.dart';
 
 class LoginCodeConnect extends StatefulWidget {
   const LoginCodeConnect({super.key});
@@ -14,6 +15,7 @@ class _LoginCodeConnectState extends State<LoginCodeConnect> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    String myCode = "wpm0ee5f2";
     // width: screenWidth * 0.9,
     // height: screenHeight * 0.6,
     return Scaffold(backgroundColor: LoginPage.backgroundMain,
@@ -29,7 +31,14 @@ class _LoginCodeConnectState extends State<LoginCodeConnect> {
                   loginText("나의 코드 복사", color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold)
                   ),
                   Container(child:
-                  loginText("wpm0ee5f2", color: Colors.black, fontSize: 23, fontWeight: FontWeight.normal, textDecoration: TextDecoration.underline)),
+                  GestureDetector(onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('클립보드에 복사되었습니다: $myCode'),
+                      backgroundColor: LoginPage.mainColor,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10))),
+                      ),
+                    );
+                  },child: loginText(myCode, color: Colors.black, fontSize: 23, fontWeight: FontWeight.normal, textDecoration: TextDecoration.underline))),
                 ],
               ),
               Column(
@@ -92,7 +101,7 @@ Container loginContainer_white(String text, double screenWidth, {Color textColor
     ),
   );
 }
-Container loginContainer_green(String text, double screenWidth, {Color textColor = Colors.white, double fontSize = 17.0, FontWeight fontWeight = FontWeight.w500}) {
+Container loginContainer_green(String text, double screenWidth, {Color textColor = Colors.white, double fontSize = 17.0, FontWeight fontWeight = FontWeight.bold}) {
   return Container(
     margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
     decoration: BoxDecoration(
