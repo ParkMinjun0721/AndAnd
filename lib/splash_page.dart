@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:andand/util/color.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -14,10 +16,10 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     // 2초 후에 홈 페이지로 이동
     Timer(
-      Duration(seconds: 2),
+      const Duration(seconds: 2),
       () => Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Home()), // 앱이 시작된 후 이동할 페이지
+        MaterialPageRoute(builder: (context) => const Home()), // 앱이 시작된 후 이동할 페이지
       ),
     );
   }
@@ -35,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
               width: MediaQuery.of(context).size.width * 0.3,
               height: MediaQuery.of(context).size.height * 0.3,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
           ],
         ),
       ),
