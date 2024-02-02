@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import '../login/login_main.dart';
 import '../util/color.dart';
 import '../widget/lightappbar.dart';
-import 'gardenmain.dart';
 
-class GardenComplete extends StatefulWidget {
-  const GardenComplete({super.key});
+class marketComplete extends StatefulWidget {
+  const marketComplete({super.key});
 
   @override
-  State<GardenComplete> createState() => _GardenCompleteState();
+  State<marketComplete> createState() => _marketCompleteState();
 }
 
-class _GardenCompleteState extends State<GardenComplete> {
+class _marketCompleteState extends State<marketComplete> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -31,7 +30,7 @@ class _GardenCompleteState extends State<GardenComplete> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/garden_complete.png',
+                    'assets/marketComplete.png',
                     fit: BoxFit.contain,
                     height: 188,
                   ),
@@ -43,7 +42,7 @@ class _GardenCompleteState extends State<GardenComplete> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '추가 성공!',
+                            '구매 완료!',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -55,7 +54,7 @@ class _GardenCompleteState extends State<GardenComplete> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '새로운 꽃이 피었어요!',
+                            '등록된 전화번호로 보내 드릴게요!',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -77,10 +76,6 @@ class _GardenCompleteState extends State<GardenComplete> {
                 ElevatedButton(
                   onPressed: () {
                     // Handle button press, navigate to GardenMain page, for example
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const GardenMain()),
-                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:

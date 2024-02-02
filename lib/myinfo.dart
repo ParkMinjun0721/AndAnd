@@ -4,6 +4,8 @@ import 'package:andand/widget/bottomNavi.dart';
 import 'package:flutter/services.dart';
 
 class MyInfo extends StatefulWidget {
+  const MyInfo({super.key});
+
   @override
   _MyInfoState createState() => _MyInfoState();
 }
@@ -18,15 +20,15 @@ class _MyInfoState extends State<MyInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(' '),
-        backgroundColor: Color(0xFF87BD9D).withOpacity(0.08),
+        title: const Text(' '),
+        backgroundColor: const Color(0xFF87BD9D).withOpacity(0.08),
         elevation: 0.0,
       ),
       body: Column(
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.25,
-            color: Color(0xFF87BD9D).withOpacity(0.08),
+            color: const Color(0xFF87BD9D).withOpacity(0.08),
             child: Center(
               child: Stack(
                 alignment: Alignment.center,
@@ -37,7 +39,7 @@ class _MyInfoState extends State<MyInfo> {
                       children: [
                         CircleAvatar(
                           radius: MediaQuery.of(context).size.height * 0.055,
-                          backgroundImage: AssetImage('assets/your_image.png'),
+                          backgroundImage: const AssetImage('assets/your_image.png'),
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.013,
@@ -124,12 +126,12 @@ class _MyInfoState extends State<MyInfo> {
                           child: Row(
                             children: [
                               Text(
-                                '$birthday',
+                                birthday,
                                 style: TextStyle(
                                   fontSize:
                                       MediaQuery.of(context).size.width * 0.045,
                                   fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 96, 96, 96),
+                                  color: const Color.fromARGB(255, 96, 96, 96),
                                 ),
                               ),
                               Icon(
@@ -146,7 +148,7 @@ class _MyInfoState extends State<MyInfo> {
                   Container(
                     padding: EdgeInsets.only(
                         left: MediaQuery.of(context).size.width * 0.22),
-                    child: Divider(
+                    child: const Divider(
                       indent: 20.0,
                       endIndent: 20.0,
                     ),
@@ -165,7 +167,7 @@ class _MyInfoState extends State<MyInfo> {
                       ),
                       InkWell(
                         onTap: () {
-                          _showEditDialog('전화번호:', birthday);
+                          _showEditDialog('전화번호', phoneNumber);
                         },
                         child: Padding(
                           padding: EdgeInsets.only(
@@ -173,12 +175,12 @@ class _MyInfoState extends State<MyInfo> {
                           child: Row(
                             children: [
                               Text(
-                                '$phoneNumber',
+                                phoneNumber,
                                 style: TextStyle(
                                   fontSize:
                                       MediaQuery.of(context).size.width * 0.045,
                                   fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 96, 96, 96),
+                                  color: const Color.fromARGB(255, 96, 96, 96),
                                 ),
                               ),
                               Icon(
@@ -195,7 +197,7 @@ class _MyInfoState extends State<MyInfo> {
                   Container(
                     padding: EdgeInsets.only(
                         left: MediaQuery.of(context).size.width * 0.22),
-                    child: Divider(
+                    child: const Divider(
                       indent: 20.0,
                       endIndent: 20.0,
                     ),
@@ -219,12 +221,12 @@ class _MyInfoState extends State<MyInfo> {
                         child: Row(
                           children: [
                             Text(
-                              '$ipAddress',
+                              ipAddress,
                               style: TextStyle(
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.045,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 96, 96, 96),
+                                color: const Color.fromARGB(255, 96, 96, 96),
                               ),
                             ),
                             GestureDetector(
@@ -247,7 +249,7 @@ class _MyInfoState extends State<MyInfo> {
                   Container(
                     padding: EdgeInsets.only(
                         left: MediaQuery.of(context).size.width * 0.22),
-                    child: Divider(
+                    child: const Divider(
                       indent: 20.0,
                       endIndent: 20.0,
                     ),
@@ -269,8 +271,8 @@ class _MyInfoState extends State<MyInfo> {
 
   // 다이얼로그를 통해 정보 변경
   Future<void> _showEditDialog(String field, String currentValue) async {
-    TextEditingController _editingController = TextEditingController();
-    _editingController.text = currentValue;
+    TextEditingController editingController = TextEditingController();
+    editingController.text = currentValue;
 
     return showDialog(
       context: context,
@@ -278,7 +280,7 @@ class _MyInfoState extends State<MyInfo> {
         return AlertDialog(
           title: Text('$field 변경'),
           content: TextField(
-            controller: _editingController,
+            controller: editingController,
             decoration: InputDecoration(hintText: "새로운 $field을 입력하세요"),
           ),
           actions: <Widget>[
@@ -286,24 +288,24 @@ class _MyInfoState extends State<MyInfo> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('취소'),
+              child: const Text('취소'),
             ),
             TextButton(
               onPressed: () {
                 setState(() {
                   if (field == '이름') {
-                    userName = _editingController.text;
+                    userName = editingController.text;
                   } else if (field == '생년월일') {
-                    birthday = _editingController.text;
+                    birthday = editingController.text;
                   } else if (field == '전화번호') {
-                    phoneNumber = _editingController.text;
+                    phoneNumber = editingController.text;
                   } else if (field == '나의 IP 주소') {
-                    ipAddress = _editingController.text;
+                    ipAddress = editingController.text;
                   }
                 });
                 Navigator.of(context).pop();
               },
-              child: Text('확인'),
+              child: const Text('확인'),
             ),
           ],
         );
@@ -319,7 +321,7 @@ class _MyInfoState extends State<MyInfo> {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Text(message),
-      duration: Duration(seconds: 2), // You can adjust the duration as needed
+      duration: const Duration(seconds: 2), // You can adjust the duration as needed
     ),
   );
 }

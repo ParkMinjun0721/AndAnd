@@ -10,7 +10,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       scrolledUnderElevation: 0,
-      backgroundColor: Color(0xFF87BD9D),
+      backgroundColor: const Color(0xFF87BD9D),
       elevation: 0,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -24,5 +24,5 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(100);
+  Size get preferredSize => const Size.fromHeight(100);
 }

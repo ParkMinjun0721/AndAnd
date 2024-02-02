@@ -1,21 +1,24 @@
 import 'package:andand/calendar.dart';
 import 'package:andand/myinfo.dart';
+import 'package:andand/settings.dart';
 import 'package:andand/widget/bottomNavi.dart';
 import 'package:flutter/material.dart';
 import 'package:andand/util/color.dart';
 
 class MyPage extends StatelessWidget {
+  const MyPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF87BD9D),
+      backgroundColor: const Color(0xFF87BD9D),
       appBar: AppBar(
-        backgroundColor: Color(0xFF87BD9D),
+        backgroundColor: const Color(0xFF87BD9D),
         elevation: 0.0,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.white, // Set the color to white
         ),
-        flexibleSpace: SafeArea(
+        flexibleSpace: const SafeArea(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [],
@@ -27,7 +30,7 @@ class MyPage extends StatelessWidget {
           // Upper Half with Custom Background Color
           Container(
             height: MediaQuery.of(context).size.height * 0.31,
-            color: Color(0xFF87BD9D),
+            color: const Color(0xFF87BD9D),
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -43,13 +46,13 @@ class MyPage extends StatelessWidget {
                             // Navigate to MyInfo page when the CircleAvatar is tapped
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => MyInfo()),
+                              MaterialPageRoute(builder: (context) => const MyInfo()),
                             );
                           },
                           child: CircleAvatar(
                             radius: MediaQuery.of(context).size.height * 0.06,
                             backgroundImage:
-                                AssetImage('assets/your_image.png'),
+                                const AssetImage('assets/your_image.png'),
                           ),
                         ),
                         Positioned(
@@ -61,7 +64,7 @@ class MyPage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => MyInfo()),
+                                    builder: (context) => const MyInfo()),
                               );
                             },
                             child: CircleAvatar(
@@ -80,8 +83,8 @@ class MyPage extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 10),
-                  Text(
+                  const SizedBox(height: 10),
+                  const Text(
                     '안하경',
                     style: TextStyle(
                       fontSize: 18,
@@ -108,7 +111,7 @@ class MyPage extends StatelessWidget {
                                 size: MediaQuery.of(context).size.width * 0.08,
                                 color: Colors.white,
                               ),
-                              SizedBox(height: 8.0),
+                              const SizedBox(height: 8.0),
                               // Text for the first section
                               Column(
                                 mainAxisSize: MainAxisSize
@@ -120,7 +123,7 @@ class MyPage extends StatelessWidget {
                                       fontSize:
                                           MediaQuery.of(context).size.width *
                                               0.025,
-                                      color: Color(0xFFC1F3EF),
+                                      color: const Color(0xFFC1F3EF),
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -144,7 +147,7 @@ class MyPage extends StatelessWidget {
                         Container(
                           height: MediaQuery.of(context).size.height * 0.05,
                           width: 1,
-                          color: Color(0xFFC1F3EF),
+                          color: const Color(0xFFC1F3EF),
                           margin: EdgeInsets.symmetric(
                             horizontal:
                                 MediaQuery.of(context).size.width * 0.02,
@@ -158,7 +161,7 @@ class MyPage extends StatelessWidget {
                         Container(
                           height: MediaQuery.of(context).size.height * 0.05,
                           width: 1,
-                          color: Color(0xFFC1F3EF),
+                          color: const Color(0xFFC1F3EF),
                           margin: EdgeInsets.symmetric(
                             horizontal:
                                 MediaQuery.of(context).size.width * 0.02,
@@ -175,14 +178,14 @@ class MyPage extends StatelessWidget {
                                 size: MediaQuery.of(context).size.width * 0.08,
                                 color: Colors.white,
                               ),
-                              SizedBox(height: 8.0),
+                              const SizedBox(height: 8.0),
                               // Text for the third section
                               Text(
                                 '부모님께\n전화하기',
                                 style: TextStyle(
                                   fontSize:
                                       MediaQuery.of(context).size.width * 0.025,
-                                  color: Color(0xFFC1F3EF),
+                                  color: const Color(0xFFC1F3EF),
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -200,12 +203,12 @@ class MyPage extends StatelessWidget {
           // Lower Half with White Background
           Expanded(
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(30.0),
                 topRight: Radius.circular(30.0),
               ),
               child: Container(
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 255, 255, 255),
                 child: Column(
                   children: [
                     // Section 1
@@ -220,22 +223,22 @@ class MyPage extends StatelessWidget {
                                 top: 8.0,
                               ),
                               child: CircleAvatar(
-                                radius: 25.0,
-                                backgroundColor: Color(0xFFE8F3F1),
+                                radius: MediaQuery.of(context).size.width * 0.06,
+                                backgroundColor: const Color(0xFFE8F3F1),
                                 child: Icon(
                                   Icons.favorite_border,
-                                  size: 30.0,
-                                  color: Color(0xFF87BD9D),
+                                  size: MediaQuery.of(context).size.width * 0.07,
+                                  color: const Color(0xFF87BD9D),
                                 ),
                               ),
                             ),
-                            SizedBox(width: 25.0),
+                            const SizedBox(width: 25.0),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.only(top: 8.0),
+                                padding: const EdgeInsets.only(top: 8.0),
                                 child: Row(
                                   children: [
-                                    Text(
+                                    const Text(
                                       '코드 연결',
                                       style: TextStyle(
                                         fontSize: 18,
@@ -243,7 +246,7 @@ class MyPage extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     Padding(
                                       padding: EdgeInsets.only(
                                           right: MediaQuery.of(context)
@@ -267,7 +270,7 @@ class MyPage extends StatelessWidget {
                       ),
                     ),
 
-                    Divider(
+                    const Divider(
                       color: Color(0xFFE8F3F1),
                       thickness: 1.0,
                       indent: 25.0,
@@ -291,16 +294,16 @@ class MyPage extends StatelessWidget {
                                 left: MediaQuery.of(context).size.width * 0.07,
                               ),
                               child: CircleAvatar(
-                                radius: 25.0,
-                                backgroundColor: Color(0xFFE8F3F1),
+                                radius: MediaQuery.of(context).size.width * 0.06,
+                                backgroundColor: const Color(0xFFE8F3F1),
                                 child: Icon(
                                   Icons.text_snippet_outlined,
-                                  size: 30.0,
-                                  color: Color(0xFF87BD9D),
+                                  size: MediaQuery.of(context).size.width * 0.07,
+                                  color: const Color(0xFF87BD9D),
                                 ),
                               ),
                             ),
-                            SizedBox(width: 25.0),
+                            const SizedBox(width: 25.0),
                             Expanded(
                               child: Padding(
                                 padding: EdgeInsets.only(
@@ -309,7 +312,7 @@ class MyPage extends StatelessWidget {
                                 ),
                                 child: Row(
                                   children: [
-                                    Text(
+                                    const Text(
                                       '기록 보기',
                                       style: TextStyle(
                                         fontSize: 18,
@@ -317,7 +320,7 @@ class MyPage extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     Icon(
                                       Icons.arrow_forward_ios,
                                       size: MediaQuery.of(context).size.width *
@@ -333,7 +336,7 @@ class MyPage extends StatelessWidget {
                       ),
                     ),
 
-                    Divider(
+                    const Divider(
                       color: Color(0xFFE8F3F1),
                       thickness: 1.0,
                       indent: 25.0,
@@ -342,52 +345,63 @@ class MyPage extends StatelessWidget {
 
                     // Section 3
                     Expanded(
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.07),
-                            child: CircleAvatar(
-                              radius: 25.0,
-                              backgroundColor: Color(0xFFE8F3F1),
-                              child: Icon(
-                                Icons.textsms_outlined,
-                                size: 28.0,
-                                color: Color(0xFF87BD9D),
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: 25.0),
-                          Expanded(
-                            child: Padding(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SettingsScreen()),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Padding(
                               padding: EdgeInsets.only(
-                                  right:
-                                      MediaQuery.of(context).size.width * 0.04),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    '문의상항 및 설정',
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  Icon(
-                                    Icons.arrow_forward_ios,
-                                    size: MediaQuery.of(context).size.width *
-                                        0.05,
-                                    color: Colors.black,
-                                  ),
-                                ],
+                                  left:
+                                      MediaQuery.of(context).size.width * 0.07),
+                              child: CircleAvatar(
+                                radius: MediaQuery.of(context).size.width * 0.06,
+                                backgroundColor: const Color(0xFFE8F3F1),
+                                child: Icon(
+                                  Icons.settings,
+                                  size: MediaQuery.of(context).size.width * 0.07,
+                                  color: const Color(0xFF87BD9D),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                            const SizedBox(width: 25.0),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    right: MediaQuery.of(context).size.width *
+                                        0.04),
+                                child: Row(
+                                  children: [
+                                    const Text(
+                                      '설정 및 문의사항',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: MediaQuery.of(context).size.width *
+                                          0.05,
+                                      color: Colors.black,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Divider(
+
+                    const Divider(
                       color: Color(0xFFE8F3F1),
                       thickness: 1.0,
                       indent: 25.0,
@@ -402,16 +416,16 @@ class MyPage extends StatelessWidget {
                             padding: EdgeInsets.only(
                                 left: MediaQuery.of(context).size.width * 0.07),
                             child: CircleAvatar(
-                              radius: 25.0,
-                              backgroundColor: Color(0xFFE8F3F1),
+                              radius: MediaQuery.of(context).size.width * 0.06,
+                              backgroundColor: const Color(0xFFE8F3F1),
                               child: Icon(
                                 Icons.storefront,
-                                size: 30.0,
-                                color: Color(0xFF87BD9D),
+                                size: MediaQuery.of(context).size.width * 0.07,
+                                color: const Color(0xFF87BD9D),
                               ),
                             ),
                           ),
-                          SizedBox(width: 25.0),
+                          const SizedBox(width: 25.0),
                           Expanded(
                             child: Padding(
                               padding: EdgeInsets.only(
@@ -419,7 +433,7 @@ class MyPage extends StatelessWidget {
                                       MediaQuery.of(context).size.width * 0.04),
                               child: Row(
                                 children: [
-                                  Text(
+                                  const Text(
                                     '상점',
                                     style: TextStyle(
                                       fontSize: 18,
@@ -427,7 +441,7 @@ class MyPage extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   Icon(
                                     Icons.arrow_forward_ios,
                                     size: MediaQuery.of(context).size.width *
@@ -441,7 +455,7 @@ class MyPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Divider(
+                    const Divider(
                       color: Color(0xFFE8F3F1),
                       thickness: 1.0,
                       indent: 25.0,
@@ -456,16 +470,16 @@ class MyPage extends StatelessWidget {
                             padding: EdgeInsets.only(
                                 left: MediaQuery.of(context).size.width * 0.07),
                             child: CircleAvatar(
-                              radius: 25.0,
-                              backgroundColor: Color(0xFFE8F3F1),
+                              radius: MediaQuery.of(context).size.width * 0.06,
+                              backgroundColor: const Color(0xFFE8F3F1),
                               child: Icon(
                                 Icons.exit_to_app,
-                                size: 30.0,
+                                size: MediaQuery.of(context).size.width * 0.07,
                                 color: Colors.red,
                               ),
                             ),
                           ),
-                          SizedBox(width: 25.0),
+                          const SizedBox(width: 25.0),
                           Expanded(
                             child: Padding(
                               padding: EdgeInsets.only(
@@ -473,7 +487,7 @@ class MyPage extends StatelessWidget {
                                       MediaQuery.of(context).size.width * 0.04),
                               child: Row(
                                 children: [
-                                  Text(
+                                  const Text(
                                     '로그아웃',
                                     style: TextStyle(
                                       fontSize: 18,
@@ -481,7 +495,7 @@ class MyPage extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   Icon(
                                     Icons.arrow_forward_ios,
                                     size: MediaQuery.of(context).size.width *
