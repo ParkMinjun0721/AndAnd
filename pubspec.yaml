@@ -32,6 +32,13 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  kakao_flutter_sdk: ^1.8.0 # 전체 추가
+  kakao_flutter_sdk_user: ^1.8.0 # 카카오 로그인
+  kakao_flutter_sdk_talk: ^1.8.0 # 카카오톡 메시지, 카카오톡 소셜(프로필 가져오기, 친구 목록 가져오기)
+  kakao_flutter_sdk_share: ^1.8.0 # 카카오톡 공유
+  kakao_flutter_sdk_navi: ^1.8.0 # 카카오내비
+  kakao_flutter_sdk_friend: ^1.8.0 # 카카오톡 소셜(피커: 친구 선택하기)
+  provider: ^6.1.1
 
   syncfusion_flutter_datepicker: ^19.2.62
   # The following adds the Cupertino Icons font to your application.
@@ -42,7 +49,7 @@ dependencies:
   intl: ^0.18.1
   shared_preferences: ^2.0.7
   image_picker: ^0.8.9
-
+  change_app_package_name: ^1.1.0
 
 dev_dependencies:
   flutter_test:
