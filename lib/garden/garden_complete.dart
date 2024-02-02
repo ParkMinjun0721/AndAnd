@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../login/login_code_connect.dart';
 import '../login/login_main.dart';
 import '../util/color.dart';
 import '../widget/lightappbar.dart';
@@ -36,8 +35,8 @@ class _GardenCompleteState extends State<GardenComplete> {
                     fit: BoxFit.contain,
                     height: 188,
                   ),
-                  SizedBox(height: 40),
-                  Column(
+                  const SizedBox(height: 40),
+                  const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
@@ -71,7 +70,7 @@ class _GardenCompleteState extends State<GardenComplete> {
             ),
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(0, 0, 0, 60),
+            margin: const EdgeInsets.fromLTRB(0, 0, 0, 60),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -80,7 +79,7 @@ class _GardenCompleteState extends State<GardenComplete> {
                     // Handle button press, navigate to GardenMain page, for example
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => GardenMain()),
+                      MaterialPageRoute(builder: (context) => const GardenMain()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -95,7 +94,7 @@ class _GardenCompleteState extends State<GardenComplete> {
                           8.0), // Adjust the value to change the corner radius
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     '확인',
                     style: TextStyle(
                       fontSize: 16,

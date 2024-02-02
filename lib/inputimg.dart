@@ -12,7 +12,7 @@ class _InputImgState extends State<InputImg> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: LightAppBar(
+      appBar: const LightAppBar(
       ),
       body: Center(
         child: Column(

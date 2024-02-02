@@ -1,18 +1,13 @@
-import 'package:andand/login/login_code_connect.dart';
-import 'package:andand/login/login_connect_complete.dart';
-import 'package:andand/login/login_main.dart';
-import 'package:andand/login/login_register.dart';
 import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
+import 'splash_page.dart';
 import 'util/color.dart';
-import 'home.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:andand/login/kakao_login.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
 
   // KakaoLogin
   KakaoSdk.init(
@@ -28,6 +23,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ChangeNotifierProvider(
         create: (_) => UserController(
           kakaoLoginApi: KakaoLoginApi(),
@@ -38,7 +34,7 @@ class MyApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        supportedLocales: [
+        supportedLocales: const [
         Locale('ko', 'KR'), // 한국어 지원
     ],
       title: 'Andand',
@@ -46,9 +42,8 @@ class MyApp extends StatelessWidget {
         primaryColor: lightColorScheme.primary,
         useMaterial3: true,
       ),
-      home: const App(),
-      ),
+      home: const SplashScreen(),
+    ),
     );
   }
 }
-

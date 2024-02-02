@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
                         child: Image.asset('assets/logo_green_with_and.png'),
                       ),
                       Container(
-                        child: Text('앤드앤드',
+                        child: const Text('앤드앤드',
                             style: TextStyle(
                               fontSize: 15,
                               color: mainColor,
@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
                     ],
                   ),
                   Container(
-                    padding: EdgeInsets.fromLTRB(0, 40, 0, 0) ,
+                    padding: const EdgeInsets.fromLTRB(0, 40, 0, 0) ,
                     child: Image.asset('assets/login_kakaotalk.png'),
                   ),
                   Container(
