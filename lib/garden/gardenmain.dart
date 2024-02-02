@@ -1,7 +1,7 @@
-import 'package:andand/garden/flowerbook.dart';
-import 'package:andand/util/color.dart';
-import 'package:andand/widget/bottomNavi.dart';
 import 'package:flutter/material.dart';
+import 'package:andand/widget/bottomNavi.dart';
+import 'package:andand/util/color.dart';
+import 'package:andand/garden/flowerbook.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -46,49 +46,47 @@ class _GardenMainState extends State<GardenMain> {
   }
 
   void _showEnlargedBook() {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return GestureDetector(
-        onTap: () {
-          Navigator.of(context).pop();
-        },
-        child: Stack(
-          children: [
-            Image.asset(
-              'assets/openBook.png',
-              width: MediaQuery.of(context).size.width * 0.9,
-              height: MediaQuery.of(context).size.height * 0.9,
-            ),
-            Positioned(
-              top: MediaQuery.of(context).size.height * 0.4,
-              left: MediaQuery.of(context).size.width * 0.42,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pop(); // Close the openBook dialog
-                  // Navigate to the FlowerBook page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => FlowerBook(),
-                    ),
-                  );
-                },
-                child: Image.asset(
-                  'assets/question.png',
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  height: MediaQuery.of(context).size.width * 0.3,
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return GestureDetector(
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+          child: Stack(
+            children: [
+              Image.asset(
+                'assets/openBook.png',
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.9,
+              ),
+              Positioned(
+                top: MediaQuery.of(context).size.height * 0.4,
+                left: MediaQuery.of(context).size.width * 0.42,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop(); // Close the openBook dialog
+                    // Navigate to the FlowerBook page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FlowerBook(),
+                      ),
+                    );
+                  },
+                  child: Image.asset(
+                    'assets/question.png',
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.width * 0.3,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-      );
-    },
-  );
-}
-
-
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   final String name1 = '안하경';
   final String name2 = '도현미';
@@ -108,43 +106,51 @@ class _GardenMainState extends State<GardenMain> {
         child: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: Padding(
-            padding: const EdgeInsets.only(top: 30.0),
-            child: Center(
-              child: RichText(
-                text: TextSpan(
-                  style: DefaultTextStyle.of(context).style.copyWith(
-                    fontSize: textSize,
+          title: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04),
+                child: RichText(
+                  text: TextSpan(
+                    style: DefaultTextStyle.of(context).style.copyWith(
+                      fontSize: MediaQuery.of(context).size.width * 0.055,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: '$name1 ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: lightColorScheme.primary,
+                        ),
+                      ),
+                      TextSpan(
+                        text: '님과 ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      TextSpan(
+                        text: '$name2 ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: lightColorScheme.primary,
+                        ),
+                      ),
+                      TextSpan(
+                        text: '님의 정원',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
                   ),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: name1,
-                      style: TextStyle(
-                        color: Colors.blue, // Modify the color if needed
-                      ),
-                    ),
-                    const TextSpan(
-                      text: '님과 ',
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
-                    TextSpan(
-                      text: name2,
-                      style: TextStyle(
-                        color: Colors.blue, // Modify the color if needed
-                      ),
-                    ),
-                    const TextSpan(
-                      text: '님의 정원',
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
-                  ],
                 ),
               ),
-            ),
+            ],
           ),
         ),
       ),
