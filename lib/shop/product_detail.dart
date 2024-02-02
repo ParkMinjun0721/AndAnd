@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../widget/baseappbar.dart';
 import '../widget/bottomNavi.dart';
+import 'purchase_history.dart';
+import 'purchase_complete.dart';
 
 class ProductDetail extends StatelessWidget {
   final String product;
@@ -18,10 +21,7 @@ class ProductDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60.0), // AppBar의 높이를 조절
-        child: BaseAppBar(), // baseappbar.dart에서 가져온 AppBar 위젯을 사용합니다.
-      ),
+      appBar: BaseAppBar(),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +32,7 @@ class ProductDetail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '', // 좌측 상단 "쇼핑하기" 텍스트
+                    '',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 24.0,
@@ -41,11 +41,11 @@ class ProductDetail extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                     decoration: BoxDecoration(
-                      color: Colors.grey[200], // 옅은 회색 배경색상
-                      borderRadius: BorderRadius.circular(10.0), // 박스의 꼭짓점을 둥글게 만듭니다.
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: Text(
-                      'P 3,000', // 옅은 회색 박스 안에 표시될 텍스트
+                      'P 3,000',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0,
@@ -57,16 +57,16 @@ class ProductDetail extends StatelessWidget {
             ),
             Expanded(
               child: Card(
-                elevation: 2.0, // 그림자 효과
+                elevation: 2.0,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Expanded(
                       child: AspectRatio(
-                        aspectRatio: 4 / 5, // 가로 대비 세로 비율 설정
+                        aspectRatio: 4 / 5,
                         child: Image.network(
                           image,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.contain,
                         ),
                       ),
                     ),
@@ -85,7 +85,7 @@ class ProductDetail extends StatelessWidget {
                           ),
                           SizedBox(height: 8.0),
                           Align(
-                            alignment: Alignment.centerRight, // 텍스트를 오른쪽에 정렬
+                            alignment: Alignment.centerRight,
                             child: Text(
                               price,
                               style: TextStyle(
@@ -105,7 +105,56 @@ class ProductDetail extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              // 구매 로직 추가
+                              bool isPointEnough = checkPoint();
+
+                              if (isPointEnough) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PurchaseComplete(
+                                      productName: product,
+                                      productPrice: price,
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      content: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Text(
+                                            '포인트가 부족하여 구매할 수 없습니다.',
+                                            style: TextStyle(
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.bold, // 글씨체를 bold로 설정
+                                            ),
+                                          ),
+                                          SizedBox(height: 16.0),
+                                          Align(
+                                            alignment: Alignment.centerRight, // 오른쪽 정렬
+                                            child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                primary: Colors.black, // 버튼 배경색
+                                                onPrimary: Colors.white, // 버튼 텍스트 색상
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(10.0),
+                                                ),
+                                              ),
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              child: Text('확인'),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                              }
                             },
                             child: Text(
                               '구매하기',
@@ -132,5 +181,9 @@ class ProductDetail extends StatelessWidget {
         },
       ),
     );
+  }
+
+  bool checkPoint() {
+    return true;
   }
 }
