@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'new_login_register.dart';
 
 Future<UserCredential> signInWithGoogle(BuildContext context) async {
   // Trigger the authentication flow
@@ -29,9 +30,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundMain, // Set background color
-      body: Center(
+    return Container(color: backgroundMain,
+      child: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -66,7 +66,7 @@ class LoginPage extends StatelessWidget {
                       // Navigate to the main page (replace with your main page class)
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => MainPage()),
+                        MaterialPageRoute(builder: (context) => Login_newRegister()),
                       );
                     }
                   } catch (e) {
@@ -77,24 +77,10 @@ class LoginPage extends StatelessWidget {
                   child: Image.asset('assets/login_google.png'),
                 ),
               ),
+
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class MainPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: LoginPage.backgroundMain, // Set background color
-      appBar: AppBar(
-        title: Text('Main Page'),
-      ),
-      body: Center(
-        child: Text('Welcome to the Main Page!'),
       ),
     );
   }
