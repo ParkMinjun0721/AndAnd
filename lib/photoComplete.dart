@@ -1,3 +1,4 @@
+import 'package:andand/home.dart';
 import 'package:flutter/material.dart';
 import '../login/login_main.dart';
 import '../util/color.dart';
@@ -75,8 +76,14 @@ class _photoCompleteState extends State<photoComplete> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Handle button press, navigate to GardenMain page, for example
-                  },
+                          // Handle the '확인' button press
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Home(), // Replace with the actual page widget
+                            ),
+                          );
+                        },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
                         primaryColor, // Set the button color to the primary color
