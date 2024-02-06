@@ -1,7 +1,6 @@
   import 'package:andand/util/color.dart';
   import 'package:flutter/material.dart';
   import 'package:flutter/services.dart';
-import 'package:uuid/uuid.dart';
   import '../main.dart';
   import '../widget/lightappbar.dart';
   import 'package:cloud_firestore/cloud_firestore.dart';

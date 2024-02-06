@@ -1,3 +1,4 @@
+import 'package:andand/uploadConfirm.dart';
 import 'package:flutter/material.dart';
 import 'widget/bottomNavi.dart';
 import 'widget/baseappbar.dart';
@@ -84,10 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
+              
             ),
           ];
         },
-        body: SingleChildScrollView(
+        body: Stack(
+          children:[
+             SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -173,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   onPressed: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => const InputImg()),
+                                      MaterialPageRoute(builder: (context) => InputImg()),
                                     );
                                   },
                                   child: const Text(
@@ -197,7 +201,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-      ),
+    ],
+  ),
+),   
       bottomNavigationBar: BottomNavi(
         selectedIndex: 1,
         onItemTapped: (index) {
