@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:andand/widget/lightappbar.dart';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'login_connect_confirm.dart';
 
 class LoginCodeConnect extends StatefulWidget {
@@ -82,6 +81,7 @@ class _LoginCodeConnectState extends State<LoginCodeConnect> {
     return Scaffold(
       backgroundColor: LoginPage.backgroundMain,
       appBar: LightAppBar(),
+
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -166,7 +166,7 @@ Text loginText(String text, {Color color = Colors.black, double fontSize = 14.0,
 
 Container loginContainer_white(String text, double screenWidth, {Color textColor = Colors.black, double fontSize = 17.0, FontWeight fontWeight = FontWeight.bold}) {
   return Container(
-    margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+    margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(5),
@@ -181,7 +181,7 @@ Container loginContainer_white(String text, double screenWidth, {Color textColor
 }
 Container loginContainer_green(String text, double screenWidth, {Color textColor = Colors.white, double fontSize = 17.0, FontWeight fontWeight = FontWeight.bold}) {
   return Container(
-    margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+    margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
     decoration: BoxDecoration(
       color: LoginPage.mainColor,
       borderRadius: BorderRadius.circular(5),

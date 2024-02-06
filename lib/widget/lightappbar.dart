@@ -18,7 +18,7 @@ class LightAppBar extends StatelessWidget implements PreferredSizeWidget {
     // height: screenHeight * 0.6,
     
     return AppBar(
-      backgroundColor: Color(0xFF87BD9D).withOpacity(0.05),
+      backgroundColor: const Color(0xFF87BD9D).withOpacity(0.05),
       automaticallyImplyLeading: false,
       elevation: 0.3,
       flexibleSpace: SafeArea(
@@ -27,7 +27,7 @@ class LightAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             IconButton(
               padding: const EdgeInsets.only(top: 10, left: 10),
-              icon: Icon(arrowBackIcon),
+              icon: const Icon(arrowBackIcon),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -46,5 +46,5 @@ class LightAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(70);
+  Size get preferredSize => const Size.fromHeight(70);
 }

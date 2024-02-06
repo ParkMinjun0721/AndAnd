@@ -4,6 +4,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'new_login_register.dart';
+import 'package:kakao_flutter_sdk_common/kakao_flutter_sdk_common.dart';
+
 
 Future<UserCredential> signInWithGoogle(BuildContext context) async {
   // Trigger the authentication flow

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../login/login_code_connect.dart';
 import '../login/login_main.dart';
 import '../util/color.dart';
 import '../widget/lightappbar.dart';
@@ -40,8 +39,8 @@ class _GardenCompleteState extends State<deleteAskPage> {
                       height: 188,
                     ),
                   ),
-                  SizedBox(height: 40),
-                  Column(
+                  const SizedBox(height: 40),
+                  const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
@@ -66,7 +65,7 @@ class _GardenCompleteState extends State<deleteAskPage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(0, 0, 0, 60),
+            margin: const EdgeInsets.fromLTRB(0, 0, 0, 60),
             child: Row(
               mainAxisAlignment: MainAxisAlignment
                   .spaceEvenly, // Adjust the alignment as needed
@@ -87,7 +86,7 @@ class _GardenCompleteState extends State<deleteAskPage> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     '취소',
                     style: TextStyle(
                       fontSize: 16,
@@ -112,7 +111,7 @@ class _GardenCompleteState extends State<deleteAskPage> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     '삭제',
                     style: TextStyle(
                       fontSize: 16,

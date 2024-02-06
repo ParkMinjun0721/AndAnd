@@ -35,7 +35,7 @@ class _LoginConnectConfirmState extends State<LoginConnectConfirm> {
                     radius: 50,
                     backgroundImage: AssetImage('assets/bear_use_labtop.png'),
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       FutureBuilder(
@@ -60,7 +60,7 @@ class _LoginConnectConfirmState extends State<LoginConnectConfirm> {
               ),
             ),
           ),
-          Container(margin: EdgeInsets.fromLTRB(0, 0, 0, 40),
+          Container(margin: const EdgeInsets.fromLTRB(0, 0, 0, 40),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
