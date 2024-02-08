@@ -5,7 +5,8 @@ import '../firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'new_login_register.dart';
 import 'package:kakao_flutter_sdk_common/kakao_flutter_sdk_common.dart';
-
+import 'package:provider/provider.dart';
+import 'package:andand/login/kakao_login.dart';
 
 Future<UserCredential> signInWithGoogle(BuildContext context) async {
   // Trigger the authentication flow
@@ -55,7 +56,9 @@ class LoginPage extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-                child: Image.asset('assets/login_kakaotalk.png'),
+                child: GestureDetector(
+                    onTap: context.read<UserController>().kakaoLogin,
+                      child: Image.asset('assets/login_kakaotalk.png')),
               ),
               GestureDetector(
                 onTap: () async {
