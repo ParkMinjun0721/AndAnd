@@ -1,6 +1,7 @@
 import 'package:andand/calendar.dart';
 import 'package:andand/myinfo.dart';
 import 'package:andand/settings.dart';
+import 'package:andand/shop/product_list.dart';
 import 'package:andand/widget/bottomNavi.dart';
 import 'package:flutter/material.dart';
 import 'package:andand/util/color.dart';
@@ -46,7 +47,8 @@ class MyPage extends StatelessWidget {
                             // Navigate to MyInfo page when the CircleAvatar is tapped
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const MyInfo()),
+                              MaterialPageRoute(
+                                  builder: (context) => const MyInfo()),
                             );
                           },
                           child: CircleAvatar(
@@ -223,11 +225,13 @@ class MyPage extends StatelessWidget {
                                 top: 8.0,
                               ),
                               child: CircleAvatar(
-                                radius: MediaQuery.of(context).size.width * 0.06,
+                                radius:
+                                    MediaQuery.of(context).size.width * 0.06,
                                 backgroundColor: const Color(0xFFE8F3F1),
                                 child: Icon(
                                   Icons.favorite_border,
-                                  size: MediaQuery.of(context).size.width * 0.07,
+                                  size:
+                                      MediaQuery.of(context).size.width * 0.07,
                                   color: const Color(0xFF87BD9D),
                                 ),
                               ),
@@ -294,11 +298,13 @@ class MyPage extends StatelessWidget {
                                 left: MediaQuery.of(context).size.width * 0.07,
                               ),
                               child: CircleAvatar(
-                                radius: MediaQuery.of(context).size.width * 0.06,
+                                radius:
+                                    MediaQuery.of(context).size.width * 0.06,
                                 backgroundColor: const Color(0xFFE8F3F1),
                                 child: Icon(
                                   Icons.text_snippet_outlined,
-                                  size: MediaQuery.of(context).size.width * 0.07,
+                                  size:
+                                      MediaQuery.of(context).size.width * 0.07,
                                   color: const Color(0xFF87BD9D),
                                 ),
                               ),
@@ -360,11 +366,13 @@ class MyPage extends StatelessWidget {
                                   left:
                                       MediaQuery.of(context).size.width * 0.07),
                               child: CircleAvatar(
-                                radius: MediaQuery.of(context).size.width * 0.06,
+                                radius:
+                                    MediaQuery.of(context).size.width * 0.06,
                                 backgroundColor: const Color(0xFFE8F3F1),
                                 child: Icon(
                                   Icons.settings,
-                                  size: MediaQuery.of(context).size.width * 0.07,
+                                  size:
+                                      MediaQuery.of(context).size.width * 0.07,
                                   color: const Color(0xFF87BD9D),
                                 ),
                               ),
@@ -410,56 +418,62 @@ class MyPage extends StatelessWidget {
 
                     // Section 4
                     Expanded(
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.07),
-                            child: CircleAvatar(
-                              radius: MediaQuery.of(context).size.width * 0.06,
-                              backgroundColor: const Color(0xFFE8F3F1),
-                              child: Icon(
-                                Icons.storefront,
-                                size: MediaQuery.of(context).size.width * 0.07,
-                                color: const Color(0xFF87BD9D),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 25.0),
-                          Expanded(
-                            child: Padding(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ShoppingUI()),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Padding(
                               padding: EdgeInsets.only(
-                                  right:
-                                      MediaQuery.of(context).size.width * 0.04),
-                              child: Row(
-                                children: [
-                                  const Text(
-                                    '상점',
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                  Icon(
-                                    Icons.arrow_forward_ios,
-                                    size: MediaQuery.of(context).size.width *
-                                        0.05,
-                                    color: Colors.black,
-                                  ),
-                                ],
+                                  left:
+                                      MediaQuery.of(context).size.width * 0.07),
+                              child: CircleAvatar(
+                                radius:
+                                    MediaQuery.of(context).size.width * 0.06,
+                                backgroundColor: const Color(0xFFE8F3F1),
+                                child: Icon(
+                                  Icons.storefront,
+                                  size:
+                                      MediaQuery.of(context).size.width * 0.07,
+                                  color: const Color(0xFF87BD9D),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                            const SizedBox(width: 25.0),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    right: MediaQuery.of(context).size.width *
+                                        0.04),
+                                child: Row(
+                                  children: [
+                                    const Text(
+                                      '상점',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: MediaQuery.of(context).size.width *
+                                          0.05,
+                                      color: Colors.black,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const Divider(
-                      color: Color(0xFFE8F3F1),
-                      thickness: 1.0,
-                      indent: 25.0,
-                      endIndent: 25.0,
                     ),
 
                     // Section 5
