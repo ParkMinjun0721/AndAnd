@@ -87,19 +87,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  try {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-
-    runApp(MaterialApp(
-      home: LoginPage(),
-    ));
-  } catch (e) {
-    print("Error during Firebase initialization: $e");
-  }
-}
-

@@ -69,7 +69,7 @@ class _LoginConnectConfirmState extends State<LoginConnectConfirm> {
                     // Update connect code in docID's data
                     updateConnectCodeInFirestore(widget.docID, widget.enteredCode);
 
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginConnectComplete()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginConnectComplete(docID : widget.docID)));
                   },
                   child: loginContainer_green("연결하기", screenWidth),
                 ),
