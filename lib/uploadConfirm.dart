@@ -1,23 +1,25 @@
-import 'package:andand/photoComplete.dart';
-import 'package:andand/util/color.dart';
+import 'dart:io';
+import 'package:andand/home.dart';
+import 'package:andand/inputimg.dart';
 import 'package:flutter/material.dart';
-import 'widget/lightappbar.dart';
+import 'package:andand/util/color.dart';
+import 'package:andand/widget/lightappbar.dart';
+import 'package:andand/photoComplete.dart';
 
 class uploadConfirm extends StatefulWidget {
-  const uploadConfirm({Key? key, required String imagePath}) : super(key: key);
+  final File image;
+
+  const uploadConfirm({Key? key, required this.image}) : super(key: key);
 
   @override
-  State<uploadConfirm> createState() => _uploadConfirm();
+  State<uploadConfirm> createState() => _uploadConfirmState();
 }
 
-class _uploadConfirm extends State<uploadConfirm> {
+class _uploadConfirmState extends State<uploadConfirm> {
   String keywordText = '웃음'; // Set the initial value of the keyword
 
   @override
   Widget build(BuildContext context) {
-    String imagePath =
-        'assets/meandyou.png'; // Replace with your actual image asset path
-
     return Scaffold(
       appBar: const LightAppBar(),
       body: Center(
@@ -56,7 +58,11 @@ class _uploadConfirm extends State<uploadConfirm> {
                       ),
                       child: IconButton(
                         onPressed: () {
-                          // Handle the home button press
+                         Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Home()),
+                            );
                         },
                         icon: Row(
                           children: [
@@ -85,7 +91,7 @@ class _uploadConfirm extends State<uploadConfirm> {
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.9,
-              height: MediaQuery.of(context).size.height * 0.8,
+              height: MediaQuery.of(context).size.height * 0.73,
               decoration: BoxDecoration(
                 border: Border.all(
                   color: Color.fromARGB(255, 188, 188, 188),
@@ -97,8 +103,8 @@ class _uploadConfirm extends State<uploadConfirm> {
                 children: [
                   Align(
                     alignment: Alignment.topCenter,
-                    child: Image.asset(
-                      imagePath, // You can adjust the fit based on your needs
+                    child: Image.file(
+                      widget.image,
                       width: MediaQuery.of(context).size.width * 0.6,
                       height: MediaQuery.of(context).size.height * 0.5,
                       fit: BoxFit.contain,
@@ -118,7 +124,11 @@ class _uploadConfirm extends State<uploadConfirm> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          // Handle the first button press
+                           Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => InputImg()),
+                            );
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
