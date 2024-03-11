@@ -1,3 +1,6 @@
+import 'package:andand/login/login_main.dart';
+import 'package:andand/login/login_register.dart';
+import 'package:andand/login/login_register_page1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
@@ -52,7 +55,7 @@ class MyApp extends StatelessWidget {
         primaryColor: lightColorScheme.primary,
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const LoginPage(),
     ),
     );
   }
