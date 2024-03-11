@@ -90,14 +90,14 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                         ),
-                        Container(child: Text("datasssss"),color: Colors.white,height: screenHeight*0.1,)
+                        Container(child: Text("Hello :>"),color: Colors.white,height: screenHeight*0.1,)
                       ],
                     ),
                     Positioned(top: 170, left: screenWidth*0.05,
                         child: Container(child: Text("성공일수",
                             style: TextStyle(
                             color: Color(0xFFADADAD),
-                            fontSize: 24,
+                            fontSize: 14,
                             ),
                           ),
                           width: screenWidth*0.9, height: screenHeight*0.115,padding: EdgeInsets.fromLTRB(10, 5, 0, 0),
@@ -128,6 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Center(
                     child: Container(
+                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
                       width: screenWidth * 0.9,
                       height: screenHeight * 0.6,
                       decoration: BoxDecoration(
