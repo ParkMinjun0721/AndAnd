@@ -1,8 +1,11 @@
 import 'dart:io';
+import 'package:andand/home.dart';
+import 'package:andand/uploadConfirm.dart';
+import 'package:flutter/material.dart';
 import 'package:andand/util/color.dart';
 import 'package:andand/widget/lightappbar.dart';
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:andand/photoComplete.dart';
 
 class InputImg extends StatefulWidget {
   @override
@@ -57,13 +60,16 @@ class _InputImgState extends State<InputImg> {
                         width: MediaQuery.of(context).size.width * 0.25,
                         height: MediaQuery.of(context).size.height * 0.043,
                         decoration: BoxDecoration(
-                          color: lightColorScheme
-                              .primary, // Change to your desired color
+                          color: lightColorScheme.primary,
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: IconButton(
                           onPressed: () {
-                            // Handle the home button press
+                             Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Home()),
+                            );
                           },
                           icon: Row(
                             children: [
@@ -89,16 +95,11 @@ class _InputImgState extends State<InputImg> {
                   ),
                 ],
               ),
+              
               _buildPhotoArea(),
               SizedBox(height: 20),
               _buildButton(),
               SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle the button press
-                },
-                child: const Text('저장'),
-              ),
             ],
           ),
         ),
@@ -124,19 +125,38 @@ class _InputImgState extends State<InputImg> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+         ElevatedButton(
+          onPressed: () {
+            getImage(ImageSource.gallery);
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Colors.black,
+            onPrimary: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0),
+              side: BorderSide(color: Colors.black),
+            ),
+            minimumSize: Size(170.0, 40.0),
+          ),
+          child: Text(
+            '사진 가져오기',
+            style: TextStyle(
+              fontWeight: FontWeight.bold, // Set the text to bold
+            ),
+          ),
+        ),
         ElevatedButton(
           onPressed: () {
             getImage(ImageSource.camera);
           },
           style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            onPrimary: Colors.black,
             shape: RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.circular(5.0), // Adjust the radius as needed
+              borderRadius: BorderRadius.circular(5.0),
               side: BorderSide(color: Colors.black),
             ),
-            primary: Colors.white, // Set the background color of the button
-            onPrimary: Colors.black, // Set the text color
-            minimumSize: Size(150.0, 40.0),
+            minimumSize: Size(170.0, 40.0),
           ),
           child: Text(
             '사진 찍기',
@@ -145,25 +165,28 @@ class _InputImgState extends State<InputImg> {
             ),
           ),
         ),
-        SizedBox(width: 30),
-        ElevatedButton(
+        SizedBox(height: 10),
+
+        ElevatedButton.icon(
           onPressed: () {
-            getImage(ImageSource.gallery);
+            if (_image != null) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => uploadConfirm(image: _image!),
+                ),
+              );
+            }
           },
+          icon: Icon(Icons.check),
+          label: Text('확인'),
           style: ElevatedButton.styleFrom(
+            primary: Color.fromARGB(255, 188, 188, 188),
+            onPrimary: Colors.white,
             shape: RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.circular(5.0), // Adjust the radius as needed
+              borderRadius: BorderRadius.circular(100.0),
             ),
-            primary: Colors.black, // Set the background color of the button
-            onPrimary: Colors.white, // Set the text color
-            minimumSize: Size(150.0, 40.0),
-          ),
-          child: Text(
-            '사진 가져오기',
-            style: TextStyle(
-              fontWeight: FontWeight.bold, // Set the text to bold
-            ),
+            minimumSize: Size(40.0, 40.0),
           ),
         ),
       ],
