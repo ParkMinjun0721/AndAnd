@@ -30,117 +30,117 @@ class _LoginRegisterState extends State<LoginRegister> {
       GlobalWidgetsLocalizations.delegate,
     ];
     supportedLocales: [
-    const Locale('ko', 'KR'), // 한국어 지원
+      const Locale('ko', 'KR'), // 한국어 지원
     ];
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final formKey = GlobalKey<FormState>();
     return Scaffold(backgroundColor: LoginPage.backgroundMain,
-      appBar: const LightAppBar(),
-      body: Form(
-        key: formKey,
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Column(mainAxisAlignment: MainAxisAlignment.center,
+        appBar: const LightAppBar(),
+        body: Form(
+          key: formKey,
+          child: Center(
+            child: SingleChildScrollView(
+                child: Column(
                   children: [
-                    Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        child: Column(
+                    Column(mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Stack(
+                          alignment: Alignment.center,
                           children: [
-                            CircleAvatar(
-                              radius: MediaQuery.of(context).size.height * 0.065,
-                              backgroundImage: const AssetImage('assets/your_image.png'),
+                            Container(
+                              child: Column(
+                                children: [
+                                  CircleAvatar(
+                                    radius: MediaQuery.of(context).size.height * 0.065,
+                                    backgroundImage: const AssetImage('assets/your_image.png'),
+                                  ),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height * 0.013,
+                                  ),
+                                  const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [],
+                                  ),
+                                ],
+                              ),
                             ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.013,
-                            ),
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [],
+                            Positioned(
+                              top: MediaQuery.of(context).size.height * 0.10,
+                              right: MediaQuery.of(context).size.width * 0.40,
+                              child: InkWell(
+                                onTap: () {
+                                  // Handle icon tap if needed
+                                },
+                                child: CircleAvatar(
+                                  radius: MediaQuery.of(context).size.width * 0.033,
+                                  backgroundColor:
+                                  const Color.fromARGB(255, 255, 255, 255),
+                                  child: Icon(
+                                    Icons.camera_alt_outlined,
+                                    size: MediaQuery.of(context).size.width * 0.045,
+                                    color: lightColorScheme.primary,
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                      Positioned(
-                        top: MediaQuery.of(context).size.height * 0.10,
-                        right: MediaQuery.of(context).size.width * 0.40,
-                        child: InkWell(
-                          onTap: () {
-                            // Handle icon tap if needed
-                          },
-                          child: CircleAvatar(
-                            radius: MediaQuery.of(context).size.width * 0.033,
-                            backgroundColor:
-                            const Color.fromARGB(255, 255, 255, 255),
-                            child: Icon(
-                              Icons.camera_alt_outlined,
-                              size: MediaQuery.of(context).size.width * 0.045,
-                              color: lightColorScheme.primary,
-                            ),
+                      ],
+                    ),
+                    Container(margin: const EdgeInsets.fromLTRB(0, 20, 0, 10), width : screenWidth*0.9, child: const Divider(color: LoginPage.mainColor)),
+                    Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+                        child:
+                        loginText("회원정보를 입력해주세요", color: LoginPage.mainColor, fontWeight: FontWeight.bold, fontSize: 20)),
+                    Column(
+                      children: [
+                        SizedBox(width: screenWidth*0.8,
+                          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),child: const Text("이름",style: TextStyle(fontWeight: FontWeight.w600))),
+                              TextFormFieldComponent(false, TextInputType.name,TextInputAction.next, "홍길동", 20, "이름은 2자 이상입니다."),
+                            ],
                           ),
                         ),
-                      ),
-                    ],
-                  ),
+                        SizedBox(width: screenWidth*0.8,
+                          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              BirthdayText(screenHeight*0.4),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: screenWidth*0.8,
+                          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),child: const Text("전화번호",style: TextStyle(fontWeight: FontWeight.w600))),
+                              TextFormFieldCall(false, TextInputType.phone,TextInputAction.next, "01XXXXXXXXX", 11, "이름은 2자 이상입니다.",screenWidth),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: screenWidth*0.8,
+                          child: Column(crossAxisAlignment: CrossAxisAlignment.start  ,
+                            children: [
+                              Container(margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),child: const Text("전화번호 인증",style: TextStyle(fontWeight: FontWeight.w600))),
+                              TextFormFieldComponent(false, TextInputType.text,TextInputAction.next, "", 6, "이름은 2자 이상입니다."),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0) ,width: screenWidth*0.8,child: Container(alignment: Alignment.bottomRight,
+                        child: CircleAvatar(
+                          radius: 30  ,
+                          backgroundColor: LoginPage.mainColor,
+                          child: IconButton(onPressed: (){
+                            // Navigator.pushNamed(context, '/login_code_connect');
+                          }, icon: const Icon(Icons.arrow_forward, color: Colors.white,),iconSize: 30,),
+                        )
+                    ),),
                   ],
-                ),
-                Container(margin: const EdgeInsets.fromLTRB(0, 20, 0, 10), width : screenWidth*0.9, child: const Divider(color: LoginPage.mainColor)),
-                Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
-                  child:
-                  loginText("회원정보를 입력해주세요", color: LoginPage.mainColor, fontWeight: FontWeight.bold, fontSize: 20)),
-                Column(
-                  children: [
-                    SizedBox(width: screenWidth*0.8,
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),child: const Text("이름",style: TextStyle(fontWeight: FontWeight.w600))),
-                          TextFormFieldComponent(false, TextInputType.name,TextInputAction.next, "홍길동", 20, "이름은 2자 이상입니다."),
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: screenWidth*0.8,
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          BirthdayText(screenHeight*0.4),
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: screenWidth*0.8,
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),child: const Text("전화번호",style: TextStyle(fontWeight: FontWeight.w600))),
-                          TextFormFieldCall(false, TextInputType.phone,TextInputAction.next, "01XXXXXXXXX", 11, "이름은 2자 이상입니다.",screenWidth),
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: screenWidth*0.8,
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.start  ,
-                        children: [
-                          Container(margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),child: const Text("전화번호 인증",style: TextStyle(fontWeight: FontWeight.w600))),
-                          TextFormFieldComponent(false, TextInputType.text,TextInputAction.next, "", 6, "이름은 2자 이상입니다."),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-                Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0) ,width: screenWidth*0.8,child: Container(alignment: Alignment.bottomRight,
-                  child: CircleAvatar(
-                    radius: 30  ,
-                    backgroundColor: LoginPage.mainColor,
-                    child: IconButton(onPressed: (){
-                        // Navigator.pushNamed(context, '/login_code_connect');
-                    }, icon: const Icon(Icons.arrow_forward, color: Colors.white,),iconSize: 30,),
-                  )
-                  ),),
-              ],
-            )
+                )
+            ),
           ),
-        ),
-      )
+        )
     );
   }
   Widget BirthdayText(double height) {

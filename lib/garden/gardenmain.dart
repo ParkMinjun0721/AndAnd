@@ -3,6 +3,8 @@ import 'package:andand/widget/bottomNavi.dart';
 import 'package:andand/util/color.dart';
 import 'package:andand/garden/flowerbook.dart';
 
+import 'gardeninput.dart';
+
 void main() {
   runApp(const MaterialApp(
     home: GardenMain(),
@@ -19,7 +21,14 @@ class GardenMain extends StatefulWidget {
 class _GardenMainState extends State<GardenMain> {
   void _checkPlus() {
     setState(() {
-      // '+' 버튼 누르면 다른 로 이동 또는 작업 수행
+        Navigator.of(context).pop(); // Close the openBook dialog
+        // Navigate to the FlowerBook page
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GardenInput(),
+          ),
+        );
     });
   }
 

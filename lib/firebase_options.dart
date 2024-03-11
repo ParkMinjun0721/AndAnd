@@ -67,7 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '22819091903',
     projectId: 'dbbase-andand',
     storageBucket: 'dbbase-andand.appspot.com',
-    androidClientId: '22819091903-1qkl5p78ssndgnc23vcc27v4f8ldpfeh.apps.googleusercontent.com',
+    androidClientId: '22819091903-7emb9mku038dfnf25jhuogfgdlfnrps6.apps.googleusercontent.com',
     iosClientId: '22819091903-pn1nvjak1ba9etfm4jtubv8us453n4v0.apps.googleusercontent.com',
     iosBundleId: 'com.example.andand',
   );
@@ -78,7 +78,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '22819091903',
     projectId: 'dbbase-andand',
     storageBucket: 'dbbase-andand.appspot.com',
-    androidClientId: '22819091903-1qkl5p78ssndgnc23vcc27v4f8ldpfeh.apps.googleusercontent.com',
+    androidClientId: '22819091903-7emb9mku038dfnf25jhuogfgdlfnrps6.apps.googleusercontent.com',
     iosClientId: '22819091903-psqgpojbvu77ig7ofoknn4utc8vvgv3k.apps.googleusercontent.com',
     iosBundleId: 'com.example.andand.RunnerTests',
   );
